@@ -1,11 +1,12 @@
 import { Navbar } from "flowbite-react";
+import trans from "../translations/translator";
 
 export default function NavBar() {
   return (
     <Navbar fluid={true} rounded={true}>
-      <Navbar.Brand href="https://flowbite.com/">
+      <Navbar.Brand href="/">
         <img
-          src="https://flowbite.com/docs/images/logo.svg"
+          src="/img/logo.jpg"
           className="mr-3 h-6 sm:h-9"
           alt="Flowbite Logo"
         />
@@ -15,13 +16,8 @@ export default function NavBar() {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link href="/home" active={true}>
-          Home
-        </Navbar.Link>
-        <Navbar.Link href="/about">About</Navbar.Link>
-        <Navbar.Link href="/services">Services</Navbar.Link>
-        <Navbar.Link href="/pricing">Pricing</Navbar.Link>
-        <Navbar.Link href="/contact">Contact</Navbar.Link>
+        <Navbar.Link href="/home">{trans.get("navbar.home")}</Navbar.Link>
+        <Navbar.Link href="/contact">{trans.get("navbar.contact")}</Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );
