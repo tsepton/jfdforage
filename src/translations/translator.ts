@@ -9,14 +9,14 @@ class Translator {
             case Language.fr:
                 return fr;
             default:
-                throw new MissingTranlsationError(this.current);
+                throw new MissingLangError(this.current);
 
         }
     }
 
     public get(path: string): string {
         const word = path.split(".").reduce((json, key) => json[key], this.translation);
-        if (word === undefined) console.error(`Translation for key '${path}' does not exist`);
+        if (word === undefined) throw new MissingKeyError(`Translation for key '${path}' does not exist`);
         return word;
     }
 
@@ -26,7 +26,7 @@ class Translator {
                 this.current = lang;
                 break;
             default:
-                throw new MissingTranlsationError(lang);
+                throw new MissingLangError(lang);
         }
     }
 }
@@ -35,10 +35,19 @@ export enum Language {
     fr,
 }
 
-class MissingTranlsationError extends Error {
+class TranslationError extends Error { }
+
+class MissingLangError extends TranslationError {
     constructor(lang: Language) {
         super(`Language ${lang} is not available.`);
-        this.name = "MissingTranlsationError";
+        this.name = "MissingLangError";
+    }
+}
+
+class MissingKeyError extends TranslationError {
+    constructor(key: string) {
+        super(`Key ${key} is not available for this translation.`);
+        this.name = "MissingKeyError";
     }
 }
 
