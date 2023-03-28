@@ -16,7 +16,11 @@ export default function NavBar() {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link href="/home">{trans.get("navbar.home")}</Navbar.Link>
+        <Navbar.Link href="/">{trans.get("navbar.home")}</Navbar.Link>
+        <Navbar.Link href="/presentation">{trans.get("navbar.presentation")}</Navbar.Link>
+        <Navbar.Link href="/geothermal">{trans.get("navbar.geothermal")}</Navbar.Link>
+        <Navbar.Link href="/services">{trans.get("navbar.services")}</Navbar.Link>
+        <Navbar.Link href="/pic">{trans.get("navbar.pic")}</Navbar.Link>
         <Navbar.Link href="/contact">{trans.get("navbar.contact")}</Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

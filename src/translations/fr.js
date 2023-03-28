@@ -1,6 +1,10 @@
 export default {
     "navbar": {
         "home": "Accueil",
-        "contact": "Contact"
+        "presentation": "Présentation",
+        "geothermal": "Géothermie",
+        "services": "Nos services",
+        "pic": "Galerie photos",
+        "contact": "Nous contacter"
     }
-}
+};
