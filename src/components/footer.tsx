@@ -5,7 +5,7 @@ export default function FooterM(props: any) {
   const year: number = new Date().getFullYear();
 
   return (
-    <TailwindFooter className={props.className} bgDark={true} container={true}>
+    <TailwindFooter className={props.className} container={true}>
       <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
         <TailwindFooter.Brand
           href="/"
