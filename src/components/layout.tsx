@@ -11,7 +11,7 @@ export default function Layout(props: any) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/img/logo-squared.jpg" />
             </Head>
-            <main className="flex h-screen flex-col">
+            <main className="flex h-screen flex-col bg-slate-200" >
                 <NavBar className="flex-none"></NavBar>
                 <div className="flex-1 text-center"> {props.children} </div>
                 <FooterM className="flex-none"></FooterM>
