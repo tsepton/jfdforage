@@ -3,9 +3,9 @@ import Section from "../components/section";
 
 export default function ContactSection(props: any) {
   return (
-    <Section id={props.id}>
+    <Section id={props.id} className={props.className}>
       <SectionCard>
-        <h1 className="text-left text-2xl  tracking-tight text-gray-900 dark:text-white">
+        <h1 className="text-left text-2xl tracking-tight text-gray-900 dark:text-white">
           Nous contacter
         </h1>
         <p className="text-justify">

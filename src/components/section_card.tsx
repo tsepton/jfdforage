@@ -2,8 +2,8 @@ import { Card } from "flowbite-react";
 
 export default function SectionCard(props: any) {
   return (
-    <Card className="max-w-screen-lg min-w-[77vw] min-h-[25vh]">
+    <div className="max-w-screen-lg min-w-[77vw] min-h-[33vh] ">
       {props.children}
-    </Card>
+    </div>
   );
 }

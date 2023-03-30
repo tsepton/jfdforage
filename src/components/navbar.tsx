@@ -9,7 +9,7 @@ export default function NavBar(props: any) {
     window.location.href = currentSection;
     const position: HTMLElement | null =
       document.getElementById(currentSection);
-    position?.scrollIntoView({ behavior: "smooth", block: "start" });
+    position?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, [currentSection]);
 
   const updateSection = (e: any, maybeSection: string | undefined) => {
@@ -54,7 +54,7 @@ export default function NavBar(props: any) {
         >
           {trans.get("navbar.presentation")}
         </Navbar.Link>
-        <Navbar.Link
+        {/* <Navbar.Link
           active={isActive("#geothermal")}
           href="#geothermal"
           onClick={(e) => updateSection(e, undefined)}
@@ -67,7 +67,7 @@ export default function NavBar(props: any) {
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.services")}
-        </Navbar.Link>
+        </Navbar.Link> */}
         <Navbar.Link
           active={isActive("#photo")}
           href="#photo"

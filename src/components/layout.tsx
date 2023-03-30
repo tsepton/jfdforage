@@ -13,7 +13,7 @@ export default function Layout(props: any) {
       </Head>
       <main className="flex h-screen flex-col">
         <NavBar className="flex-none"></NavBar>
-        <div className="flex-1 text-center bg-slate-200">{props.children} </div>
+        <div className="flex-1 text-center">{props.children} </div>
         <FooterM className="flex-none"></FooterM>
       </main>
     </>
