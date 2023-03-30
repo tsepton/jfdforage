@@ -1,5 +1,5 @@
 import Layout from "@/components/layout";
-import ContactSection from "@/section/contaxt";
+import ContactSection from "@/section/contact";
 import GeothermalSection from "@/section/geothermal";
 import HomeSection from "@/section/home";
 import PhotoSection from "@/section/photo";
@@ -10,7 +10,7 @@ export default function Home(props: any) {
   return (
     <Layout>
       <div className="flex flex-col justify-center pt-20">
-        <HomeSection id="#home" />
+        {/* <HomeSection id="#home" /> */}
         <PresentationSection id="#presentation" />
         <GeothermalSection id="#geothermal" />
         <ServiceSection id="#services" />

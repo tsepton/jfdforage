@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import trans from "../translations/translator";
 
 export default function NavBar(props: any) {
-  const [currentSection, setCurrentSection] = useState("#");
+  const [currentSection, setCurrentSection] = useState("#presentation");
 
   useEffect(() => {
     window.location.href = currentSection;
@@ -40,13 +40,13 @@ export default function NavBar(props: any) {
       </Navbar.Brand>
 
       <Navbar.Collapse className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-        <Navbar.Link
+        {/* <Navbar.Link
           active={isActive("#")}
           href="#"
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.home")}
-        </Navbar.Link>
+        </Navbar.Link> */}
         <Navbar.Link
           active={isActive("#presentation")}
           href="#presentation"
