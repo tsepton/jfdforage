@@ -23,7 +23,7 @@ export default function PresentationSection(props: any) {
             }}
           ></p>
         </div>
-        <div className="flex flex-row justify-center content-center pt-20 p-10 gap-[20%]">
+        <div className="flex flex-col sm:flex-row justify-center content-center  pt-20 p-5 md:p-10 gap-[3em] sm:gap-[20%]">
           <Profile
             src="/img/jean-francois.jpg"
             name="Jean-François"
