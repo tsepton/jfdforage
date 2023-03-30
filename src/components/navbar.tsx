@@ -78,7 +78,10 @@ export default function NavBar(props: any) {
       </Navbar.Collapse>
 
       <div className="flex md:order-2 p-0">
-        <Button onClick={(e) => updateSection(e, "#contact")}>
+        <Button
+          className="bg-jfd-orange hover:bg-jfd-orange-light"
+          onClick={(e) => updateSection(e, "#contact")}
+        >
           {trans.get("navbar.contact")}{" "}
         </Button>
         <Navbar.Toggle />
