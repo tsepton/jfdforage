@@ -7,7 +7,7 @@ export default function PresentationSection(props: any) {
   return (
     <Section id={props.id} className={props.className}>
       <SectionCard>
-        <h1 className="text-left text-2xl text-gray-900 dark:text-white mb-5">
+        <h1 className="text-left text-3xl lg:text-4xl font-light text-gray-900 dark:text-white mb-5 lg:mb-10">
           {trans.get("sections.presentation.title")}
         </h1>
         <div className="flex flex-col md:flex-row-reverse sm:justify-center  text-justify">

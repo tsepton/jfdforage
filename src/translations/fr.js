@@ -15,8 +15,10 @@ export default {
     },
     contact: {
       title: "Nous contacter",
-      content:
-        "Vous souhaitez un devis ou tout simplement de plus amples informations ? <br /> N’hésitez pas à nous contacter, nous nous efforcerons de vous répondre dans les plus brefs délais. <br />Nos devis sont gratuits.",
+      content1:
+        "Vous souhaitez un devis ou tout simplement de plus amples informations ?",
+      content2:
+        "N’hésitez pas à nous contacter, nous nous efforcerons de vous répondre dans les plus brefs délais. Nos devis sont gratuits.",
     },
     photo: {
       title: "Gallerie photos",
