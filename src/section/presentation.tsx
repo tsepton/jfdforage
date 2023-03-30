@@ -1,3 +1,4 @@
+import Profile from "@/components/profile";
 import SectionCard from "@/components/section_card";
 import Section from "../components/section";
 
@@ -27,6 +28,10 @@ export default function PresentationSection(props: any) {
             src="/img/logo.png"
             alt="Logo JFD forage"
           />
+        </div>
+        <div className="flex flex-row justify-center content-center pt-20 p-10 gap-[20%]">
+          <Profile src="/img/jean-francois.jpg" name="Jean-François"></Profile>
+          <Profile src="/img/marie.jpg" name="Marie"></Profile>
         </div>
       </SectionCard>
     </Section>
