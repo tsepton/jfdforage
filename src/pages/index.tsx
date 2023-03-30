@@ -8,12 +8,12 @@ import ServiceSection from "@/section/services";
 export default function Home(props: any) {
   return (
     <div className="flex flex-col justify-center">
-      <HomeSection />
-      <PresentationSection />
-      <GeothermalSection />
-      <ServiceSection />
-      <PhotoSection />
-      <ContactSection />
+      <HomeSection id="#home" />
+      <PresentationSection id="#presentation" />
+      <GeothermalSection id="#geothermal" />
+      <ServiceSection id="#services" />
+      <PhotoSection id="#photo" />
+      <ContactSection id="#contact" />
     </div>
   );
 }
