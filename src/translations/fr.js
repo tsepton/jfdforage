@@ -21,7 +21,7 @@ export default {
         "N’hésitez pas à nous contacter, nous nous efforcerons de vous répondre dans les plus brefs délais. Nos devis sont gratuits.",
     },
     photo: {
-      title: "Gallerie photos",
+      title: "Galerie photos",
       content: "En cours de construction…",
     },
   },
