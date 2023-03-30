@@ -5,7 +5,7 @@ export default function Section(props: any) {
     // FIXME content-center not working
     <div
       id={props.id}
-      className={"p-20 flex flex-row justify-center " + props.className}
+      className={"p-5 md:p-20 flex flex-row justify-center " + props.className}
     >
       {props.children}
     </div>
