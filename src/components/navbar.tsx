@@ -1,34 +1,33 @@
 import { Button, Navbar } from "flowbite-react";
+import { useEffect, useState } from "react";
 import trans from "../translations/translator";
 
 export default function NavBar(props: any) {
-  const getCurrentSection = () => {
-    // FIXME : window is only available at runtime => Use useState from react
-    // const uri = location.href.split("#");
-    // console.assert(uri.length === 2);
-    // return uri[1];
-    return "#";
-  };
+  const [currentSection, setCurrentSection] = useState("#");
 
-  // TODO update url as user scroll, and update isActive inside the navbar
-  // TODO also keep the navbar visible when scrolling
-
-  const scrollHandle = (e: any) => {
-    e.preventDefault();
-
-    const href: string = e.target.href;
-    const id: string = href.slice(href.indexOf("#"), href.length);
-    const position: HTMLElement | null = document.getElementById(id);
-
-    window.location.href = id; // TODO => Set it as reactive
+  useEffect(() => {
+    window.location.href = currentSection;
+    const position: HTMLElement | null =
+      document.getElementById(currentSection);
     position?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [currentSection]);
+
+  const updateSection = (e: any, maybeSection: string | undefined) => {
+    e.preventDefault();
+    const href: string = maybeSection ?? e.target.href;
+    const section: string = href.slice(href.indexOf("#"), href.length);
+    setCurrentSection(section);
   };
 
   // TODO
-  const isActive = (uri: string) => getCurrentSection() === uri;
+  const isActive = (uri: string) => uri === currentSection;
 
   return (
-    <Navbar className={props.className} fluid={true} rounded={true}>
+    <Navbar
+      className={props.className + "  fixed w-full"} // FIXME: content goes under the navbar
+      fluid={true}
+      rounded={true}
+    >
       <Navbar.Brand href="/">
         <img
           src="/img/logo.jpg"
@@ -41,41 +40,45 @@ export default function NavBar(props: any) {
       </Navbar.Brand>
 
       <Navbar.Collapse className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-        <Navbar.Link active={isActive("#")} href="#" onClick={scrollHandle}>
+        <Navbar.Link
+          active={isActive("#")}
+          href="#"
+          onClick={(e) => updateSection(e, undefined)}
+        >
           {trans.get("navbar.home")}
         </Navbar.Link>
         <Navbar.Link
           active={isActive("#presentation")}
           href="#presentation"
-          onClick={scrollHandle}
+          onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.presentation")}
         </Navbar.Link>
         <Navbar.Link
           active={isActive("#geothermal")}
           href="#geothermal"
-          onClick={scrollHandle}
+          onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.geothermal")}
         </Navbar.Link>
         <Navbar.Link
           active={isActive("#services")}
           href="#services"
-          onClick={scrollHandle}
+          onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.services")}
         </Navbar.Link>
         <Navbar.Link
           active={isActive("#photo")}
           href="#photo"
-          onClick={scrollHandle}
+          onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.pic")}
         </Navbar.Link>
       </Navbar.Collapse>
 
       <div className="flex md:order-2 p-0">
-        <Button href="#contact" onClick={scrollHandle}>
+        <Button onClick={(e) => updateSection(e, "#contact")}>
           {trans.get("navbar.contact")}{" "}
         </Button>
         <Navbar.Toggle />
