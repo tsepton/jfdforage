@@ -4,7 +4,7 @@ export default function Profile(props: any) {
       <img
         className="rounded-full w-[12em] h-[12em]"
         src={props.src}
-        alt="image description"
+        alt={props.alt}
       />
       <p className="text-center text-xl text-gray-900 dark:text-white">
         {props.name}
