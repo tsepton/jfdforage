@@ -24,7 +24,7 @@ export default function NavBar(props: any) {
 
   return (
     <Navbar
-      className={props.className + "  fixed w-full"} // FIXME: content goes under the navbar
+      className={props.className + " fixed w-full shadow-md"} // FIXME: content goes under the navbar (added a temporary padding on the parent for now)
       fluid={true}
       rounded={true}
     >
