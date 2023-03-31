@@ -4,6 +4,7 @@ import GeothermalSection from "@/section/geothermal";
 import PhotoSection from "@/section/photo";
 import PresentationSection from "@/section/presentation";
 import ServiceSection from "@/section/services";
+import UnderConstructionSection from "@/section/under_construction";
 
 export default function Home(props: any) {
   return (
@@ -17,9 +18,12 @@ export default function Home(props: any) {
           id="#presentation"
           className="bg-slate-200 before:block"
         />
+
+        <UnderConstructionSection className="bg-slate-100" />
+
         {/* <GeothermalSection id="#geothermal" />
         <ServiceSection id="#services" /> */}
-        <PhotoSection id="#photo" className="bg-slate-100" />
+        {/* <PhotoSection id="#photo" className="bg-slate-100" /> */}
         <ContactSection id="#contact" className="bg-slate-200" />
       </div>
     </Layout>

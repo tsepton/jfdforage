@@ -7,7 +7,7 @@ export default function PresentationSection(props: any) {
   return (
     <Section id={props.id} className={props.className}>
       <SectionCard>
-        <h1 className="text-left text-3xl lg:text-4xl font-light text-gray-900 dark:text-white mb-5 lg:mb-10">
+        <h1 className="text-left text-3xl lg:text-4xl font-light text-gray-900 dark:text-white  lg:mb-10">
           {trans.get("sections.presentation.title")}
         </h1>
         <div className="flex flex-col md:flex-row-reverse sm:justify-center  text-justify">
@@ -23,7 +23,7 @@ export default function PresentationSection(props: any) {
             }}
           ></p>
         </div>
-        <div className="flex flex-col sm:flex-row justify-center content-center  pt-20 p-5 md:p-10 gap-[3em] sm:gap-[20%]">
+        {/* <div className="flex flex-col sm:flex-row justify-center content-center  pt-20 p-5 md:p-10 gap-[3em] sm:gap-[20%]">
           <Profile
             src="/img/jean-francois.jpg"
             name="Jean-François"
@@ -34,7 +34,7 @@ export default function PresentationSection(props: any) {
             name="Marie"
             alt="Picture of Marie"
           ></Profile>
-        </div>
+        </div> */}
       </SectionCard>
     </Section>
   );

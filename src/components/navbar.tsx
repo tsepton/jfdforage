@@ -68,13 +68,13 @@ export default function NavBar(props: any) {
         >
           {trans.get("navbar.services")}
         </Navbar.Link> */}
-        <Navbar.Link
+        {/* <Navbar.Link
           active={isActive("#photo")}
           href="#photo"
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.pic")}
-        </Navbar.Link>
+        </Navbar.Link> */}
       </Navbar.Collapse>
 
       <div className="flex md:order-2 p-0">
