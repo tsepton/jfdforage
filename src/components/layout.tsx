@@ -34,6 +34,6 @@ function NavBarFiller(props: any) {
   }, []);
 
   return (
-    <div className={props.className} style={{ height: height }}>salut</div>
+    <div className={props.className} style={{ height: height }}></div>
   );
 };
