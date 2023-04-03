@@ -26,11 +26,17 @@ export default function Layout(props: any) {
 function NavBarFiller(props: any) {
   const [height, setHeight] = useState(0);
 
-  useEffect(() => {
+  const handleSize = () => {
     if (!process.env.navbarId) throw new Error("No navbar id. Check next config file for the navbarId variable.");
     const navbarRef = document.getElementById(process.env.navbarId);
     if (!navbarRef) throw new Error("No nabbar element. Did you forget to include it inside the project?");
     setHeight(navbarRef.clientHeight);
+  };
+
+  useEffect(handleSize, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleSize, false);
   }, []);
 
   return (
