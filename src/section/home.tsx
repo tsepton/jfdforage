@@ -1,10 +1,17 @@
-import SectionCard from "@/components/section_card";
-import Section from "../components/section";
+import React from 'react';
 
 export default function HomeSection(props: any) {
   return (
-    <Section id={props.id} className={props.className}>
-      <SectionCard>Home</SectionCard>
-    </Section>
+    <div
+      id={props.id}
+      // TODO h-screen
+      className={"p-10 pt-10 flex flex-row justify-center " + props.className}
+    >
+      <h1 className="text-xl font-light text-gray-900">
+        Entreprise spécialisée dans la réalisation de forages géothermiques.
+      </h1>
+    </div>
+
   );
 }
+
