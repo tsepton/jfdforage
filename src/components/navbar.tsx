@@ -24,6 +24,7 @@ export default function NavBar(props: any) {
 
   return (
     <Navbar
+      id={process.env.navbarId}
       className={props.className + " fixed w-full shadow-md"} // FIXME: content goes under the navbar (added a temporary padding on the parent for now)
       fluid={true}
       rounded={true}
