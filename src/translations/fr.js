@@ -10,8 +10,11 @@ export default {
   sections: {
     presentation: {
       title: "Qui sommes-nous ? Plus de transparence…",
-      content:
-        "Derrière ce nom, se cache un couple motivé de changer leur avenir professionnel. Au cœur des opérations et de ce projet un peu fou: Jean-François Deldeffe. Fort de <b>12 années d’expérience</b> dans le domaine, de caractère indépendant et entrepreneur, Jean-François n’a pas peur du travail. Connaissant bien son métier, il est sérieux et efficace. Passionné, cela fait de nombreuses années qu’il souhaite franchir le pas et s’investir à son compte. C’est chose faite ! En ce début d’année 2023, la société est née. Son soutien ? Sa compagne, Marie. Professionnelle et impliquée dans le projet de Jean-François, elle est présente pour l’aider dans les nombreuses démarches administratives.",
+      content: "Après 12 années d’expérience dans le domaine du forage – qui lui ont permis d’acquérir une maîtrise du métier et des savoir-faire – c’était une évidence pour Jean-François de créer sa propre société. La société JFD forage voit le jour...",
+      keyword: "Ses maîtres mots sont :",
+      react: "réactivité;",
+      prof: "professionnalisme;",
+      eff: "efficacité."
     },
     contact: {
       title: "Nous contacter",
