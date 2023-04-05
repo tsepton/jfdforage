@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import trans from "../translations/translator";
 
 export default function NavBar(props: any) {
-  const [currentSection, setCurrentSection] = useState("#");
+  const [currentSection, setCurrentSection] = useState("#geothermal");
 
   useEffect(() => {
     window.location.href = currentSection;
@@ -36,9 +36,9 @@ export default function NavBar(props: any) {
           className="mr-3 h-6 sm:h-9"
           alt="JFD forage Logo"
         />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+        {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
           JFD forage
-        </span>
+        </span> */}
       </Navbar.Brand>
 
       <Navbar.Collapse className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
@@ -88,7 +88,7 @@ export default function NavBar(props: any) {
 
       <div className="flex md:order-2 p-0">
         <Button
-          className="bg-jfd-orange hover:bg-jfd-orange-light"
+          className="bg-jfd-orange hover:bg-jfd-blue-light"
           onClick={(e) => updateSection(e, "#contact")}
         >
           {trans.get("navbar.contact")}{" "}
