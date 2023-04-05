@@ -29,7 +29,7 @@ function NavBarFiller(props: any) {
   const handleSize = () => {
     if (!process.env.navbarId) throw new Error("No navbar id. Check next config file for the navbarId variable.");
     const navbarRef = document.getElementById(process.env.navbarId);
-    if (!navbarRef) throw new Error("No nabbar element. Did you forget to include it inside the project?");
+    if (!navbarRef) throw new Error("No navbar element. Did you forget to include it inside the project?");
     setHeight(navbarRef.clientHeight);
   };
 
