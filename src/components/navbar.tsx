@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import trans from "../translations/translator";
 
 export default function NavBar(props: any) {
-  const [currentSection, setCurrentSection] = useState("#geothermal");
+  const [currentSection, setCurrentSection] = useState("#");
 
   useEffect(() => {
     window.location.href = currentSection;
@@ -14,8 +14,17 @@ export default function NavBar(props: any) {
     position?.scrollIntoView({ behavior: "smooth", block });
   }, [currentSection]);
 
+  useEffect(() => {
+    const updateOnUrlChange = () => updateSection(undefined, window.location.href);
+    window.addEventListener("popstate", updateOnUrlChange);
+    return () => {
+      window.removeEventListener("popstate", updateOnUrlChange);
+    };
+  }, []);
+
+  // FIXME: any | undefined
   const updateSection = (e: any, maybeSection: string | undefined) => {
-    e.preventDefault();
+    e?.preventDefault();
     const href: string = maybeSection ?? e.target.href;
     const section: string = href.slice(href.indexOf("#"), href.length);
     setCurrentSection(section);
