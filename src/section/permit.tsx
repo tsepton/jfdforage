@@ -1,20 +1,41 @@
 import SectionCard from "@/components/section_card";
 import trans from "@/translations/translator";
 import Section from "../components/section";
+import { content, highlight, subtitle, title } from "./shared_classes";
+import FooterSection from "@/components/footer_section";
 
 export default function PermitSection(props: any) {
   return (
     <Section id={props.id} className={props.className}>
       <SectionCard>
-        <h1 className="text-left text-3xl lg:text-4xl font-light text-gray-900 dark:text-white mb-5 lg:mb-10">
+        <h1 className={title}>
           {trans.get("sections.permit.title")}
         </h1>
-        {trans.get("sections.permit.motivation")}
-        {trans.get("sections.permit.belgium")}
-        {trans.get("sections.permit.belgiumAnswer")}
-        {trans.get("sections.permit.luxembourg")}
-        {trans.get("sections.permit.luxembourgAnswer")}
-        {trans.get("sections.permit.end")}
+        <div className="flex flex-col justify-start items-start text-center md:text-left">
+          <div className={content}>
+            {trans.get("sections.permit.motivation")}
+          </div>
+          <div >
+            <div className={subtitle + " mt-10"}>
+              {trans.get("sections.permit.belgium")}
+            </div>
+            <div className={content}>
+              {trans.get("sections.permit.belgiumContent")}
+            </div>
+            <div className={content}>
+              {trans.get("sections.permit.belgiumAnswer")}
+            </div>
+            <div className={subtitle + " mt-10"}>
+              {trans.get("sections.permit.luxembourg")}
+            </div>
+            <div className={content}>
+              <a className="hover:underline" href={trans.get("sections.permit.luxembourgAnswer") as string}>
+                {trans.get("sections.permit.luxembourgContent")}
+              </a>
+            </div>
+          </div>
+          <FooterSection className="pt-[3em]" moreInfo={true} showContact={true} currentSection={"#permit"} ></FooterSection >
+        </div>
       </SectionCard>
     </Section>
   );
