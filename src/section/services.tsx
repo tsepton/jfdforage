@@ -4,6 +4,15 @@ import trans from "@/translations/translator";
 import { content, title } from "./shared_classes";
 
 export default function ServiceSection(props: any) {
+  const contentTemp = true
+    ? trans.get("sections.photo.content")
+    : <div>
+      {trans.get("sections.service.motivation")}
+      {trans.get("sections.service.endMotivation")}
+      {trans.get("sections.service.subtitle")}
+      {trans.get("sections.service.services")}
+
+    </div>;
   return (
     <Section id={props.id} className={props.className}>
       <SectionCard>
@@ -11,10 +20,7 @@ export default function ServiceSection(props: any) {
           {trans.get("sections.service.title")}
         </h1>
         <div className={content}>
-          {trans.get("sections.service.motivation")}
-          {trans.get("sections.service.endMotivation")}
-          {trans.get("sections.service.subtitle")}
-          {trans.get("sections.service.services")}
+          {contentTemp}
         </div>
       </SectionCard>
     </Section>
