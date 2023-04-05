@@ -10,8 +10,7 @@ export default function NavBar(props: any) {
     const position: HTMLElement | null =
       document.getElementById(currentSection);
     // FIXME: scroll is broken for home section 
-    const block: ScrollLogicalPosition = "start";
-    position?.scrollIntoView({ behavior: "smooth", block });
+    position?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [currentSection]);
 
   useEffect(() => {
@@ -41,24 +40,26 @@ export default function NavBar(props: any) {
       style={{ 'zIndex': '100' }}
     >
       <Navbar.Brand href="/">
-        <img
-          src="/img/logo.jpg"
-          className="mr-3 h-6 sm:h-9"
-          alt="JFD forage Logo"
-        />
+        <a href="#">
+          <img
+            src="/img/logo.jpg"
+            className="mr-3 h-6 sm:h-9"
+            alt="JFD forage Logo"
+          />
+        </a>
         {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
           JFD forage
         </span> */}
       </Navbar.Brand>
 
       <Navbar.Collapse className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-        <Navbar.Link
+        {/* <Navbar.Link
           active={isActive("#")}
           href="#"
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.home")}
-        </Navbar.Link>
+        </Navbar.Link> */}
         <Navbar.Link
           active={isActive("#presentation")}
           href="#presentation"
