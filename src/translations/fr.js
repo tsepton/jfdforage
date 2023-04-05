@@ -4,6 +4,7 @@ export default {
     presentation: "Présentation",
     geothermal: "Géothermie",
     services: "Nos services",
+    permit: "Autorisations/Permis",
     pic: "Galerie photos",
     contact: "Nous contacter",
   },

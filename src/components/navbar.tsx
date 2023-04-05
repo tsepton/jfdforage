@@ -3,13 +3,15 @@ import { useEffect, useState } from "react";
 import trans from "../translations/translator";
 
 export default function NavBar(props: any) {
-  const [currentSection, setCurrentSection] = useState("#presentation");
+  const [currentSection, setCurrentSection] = useState("#");
 
   useEffect(() => {
     window.location.href = currentSection;
     const position: HTMLElement | null =
       document.getElementById(currentSection);
-    position?.scrollIntoView({ behavior: "smooth", block: "center" });
+    // FIXME: scroll is broken for home section 
+    const block: ScrollLogicalPosition = currentSection == "#" ? "start" : "center";
+    position?.scrollIntoView({ behavior: "smooth", block });
   }, [currentSection]);
 
   const updateSection = (e: any, maybeSection: string | undefined) => {
@@ -19,13 +21,12 @@ export default function NavBar(props: any) {
     setCurrentSection(section);
   };
 
-  // TODO
   const isActive = (uri: string) => uri === currentSection;
 
   return (
     <Navbar
       id={process.env.navbarId}
-      className={props.className + " fixed w-full shadow-md"} // FIXME: content goes under the navbar (added a temporary padding on the parent for now)
+      className={props.className + " fixed w-full shadow-md"}
       fluid={true}
       rounded={true}
     >
@@ -41,13 +42,13 @@ export default function NavBar(props: any) {
       </Navbar.Brand>
 
       <Navbar.Collapse className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-        {/* <Navbar.Link
+        <Navbar.Link
           active={isActive("#")}
           href="#"
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.home")}
-        </Navbar.Link> */}
+        </Navbar.Link>
         <Navbar.Link
           active={isActive("#presentation")}
           href="#presentation"
@@ -55,7 +56,7 @@ export default function NavBar(props: any) {
         >
           {trans.get("navbar.presentation")}
         </Navbar.Link>
-        {/* <Navbar.Link
+        <Navbar.Link
           active={isActive("#geothermal")}
           href="#geothermal"
           onClick={(e) => updateSection(e, undefined)}
@@ -68,14 +69,21 @@ export default function NavBar(props: any) {
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.services")}
-        </Navbar.Link> */}
-        {/* <Navbar.Link
+        </Navbar.Link>
+        <Navbar.Link
+          active={isActive("#permit")}
+          href="#permit"
+          onClick={(e) => updateSection(e, undefined)}
+        >
+          {trans.get("navbar.permit")}
+        </Navbar.Link>
+        <Navbar.Link
           active={isActive("#photo")}
           href="#photo"
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.pic")}
-        </Navbar.Link> */}
+        </Navbar.Link>
       </Navbar.Collapse>
 
       <div className="flex md:order-2 p-0">

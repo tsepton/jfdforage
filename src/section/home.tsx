@@ -5,7 +5,7 @@ export default function HomeSection(props: any) {
     <div
       id={props.id}
       // TODO h-screen
-      className={"p-10 pt-10 flex flex-row justify-center " + props.className}
+      className={"h-screen p-10 pt-10 flex flex-row justify-center " + props.className}
     >
       <h1 className="text-xl font-light text-gray-900">
         Entreprise spécialisée dans la réalisation de forages géothermiques.
