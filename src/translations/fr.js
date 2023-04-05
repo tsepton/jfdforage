@@ -70,7 +70,7 @@ export default {
       ]
     },
     permit: {
-      title: "Administratif et légal",
+      title: "Administratif et permis",
       motivation: "Si vous le souhaitez, JFD forage peut se charger du suivi administratif de votre dossier.",
       belgium: "Je souhaite réaliser un forage géothermique en WALLONIE",
       belgiumContent: "Une déclaration de classe 3 auprès de l’administration communale est suffisante. Nous pouvons nous en charger ou vous accompagner dans ces démarches.",
