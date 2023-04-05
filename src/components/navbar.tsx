@@ -89,7 +89,7 @@ export default function NavBar(props: any) {
 
       <div className="flex md:order-2 p-0">
         <Button
-          className="bg-jfd-orange hover:bg-jfd-blue-light"
+          className="bg-jfd-orange hover:bg-jfd-grey"
           onClick={(e) => updateSection(e, "#contact")}
         >
           {trans.get("navbar.contact")}{" "}
