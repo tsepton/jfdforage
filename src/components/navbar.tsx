@@ -10,7 +10,8 @@ export default function NavBar(props: any) {
     const position: HTMLElement | null =
       document.getElementById(currentSection);
     // FIXME: scroll is broken for home section 
-    const block: ScrollLogicalPosition = currentSection == "#" ? "start" : "center";
+    const block: ScrollLogicalPosition =
+      ["#", "#presentation"].includes(currentSection) ? "start" : "center";
     position?.scrollIntoView({ behavior: "smooth", block });
   }, [currentSection]);
 
