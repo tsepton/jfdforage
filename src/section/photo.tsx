@@ -2,6 +2,7 @@ import SectionCard from "@/components/section_card";
 import trans from "@/translations/translator";
 import { Carousel } from "flowbite-react";
 import Section from "../components/section";
+import { title, content as contentClass } from "./shared_classes";
 
 export default function PhotoSection(props: any) {
   const underConstruction = true;
@@ -36,10 +37,12 @@ export default function PhotoSection(props: any) {
   return (
     <Section id={props.id} className={props.className}>
       <SectionCard>
-        <h1 className="text-left text-3xl lg:text-4xl font-light text-gray-900 dark:text-white mb-5 lg:mb-10">
+        <h1 className={title}>
           {trans.get("sections.photo.title")}
         </h1>
-        {content}
+        <div className={contentClass}>
+          {content}
+        </div>
       </SectionCard>
     </Section>
   );

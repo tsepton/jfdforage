@@ -5,17 +5,18 @@ import Phone from "@/icons/phone";
 import QuestionMarkCircle from "@/icons/question_mark_circle";
 import trans from "@/translations/translator";
 import Section from "../components/section";
+import { content, title } from "./shared_classes";
 
 export default function ContactSection(props: any) {
   return (
     <Section id={props.id} className={props.className}>
       <SectionCard>
         <div className="flex flex-col md:flex-row md:flex-row gap-[2em] md:gap-[5em]">
-          <div className="">
-            <h1 className="text-left text-3xl lg:text-4xl font-light text-gray-900 dark:text-white mb-5 lg:mb-10">
+          <div>
+            <h1 className={title}>
               {trans.get("sections.contact.title")}
             </h1>
-            <span>
+            <span className={content}>
               <p className="text-justify pb-5">
                 {trans.get("sections.contact.content1")}
               </p>

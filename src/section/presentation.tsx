@@ -2,15 +2,16 @@ import Profile from "@/components/profile";
 import SectionCard from "@/components/section_card";
 import Section from "../components/section";
 import trans from "@/translations/translator";
+import { content, title } from "./shared_classes";
 
 export default function PresentationSection(props: any) {
   return (
     <Section id={props.id} className={props.className}>
       <SectionCard>
-        <h1 className="text-left text-3xl lg:text-4xl font-light text-gray-900 dark:text-white  md:mb-10">
+        <h1 className={title}>
           {trans.get("sections.presentation.title")}
         </h1>
-        <div className="flex flex-col md:flex-row-reverse sm:justify-center  text-justify">
+        <div className="flex flex-col md:flex-row-reverse sm:justify-center text-justify">
           <img
             className="flex-auto m-auto p-5 sm:w-[90%] md:w-[40%] lg:w-1/5 lg:w-[20em] h-fit	"
             src="/img/logo.png"
@@ -19,21 +20,21 @@ export default function PresentationSection(props: any) {
           <span className="flex flex-col gap-[2em]">
             <p
               dangerouslySetInnerHTML={{
-                __html: trans.get("sections.presentation.content"),
+                __html: (trans.get("sections.presentation.content") as string),
               }}
             ></p>
             <div className="flex flex-col justify-around gap-[1em]">
               <p className="md-auto justify-self-center">
                 {trans.get("sections.presentation.keyword")}
               </p>
-              <div className="flex flex-row justify-around md:flex-col justify-right pl-[1.5em]">
-                <span className="font-semibold">
+              <div className={content + " flex flex-row justify-around md:flex-col justify-right pl-[1.5em]"}>
+                <span>
                   {trans.get("sections.presentation.react")}
                 </span>
-                <span className="font-semibold">
+                <span>
                   {trans.get("sections.presentation.prof")}
                 </span>
-                <span className="font-semibold">
+                <span>
                   {trans.get("sections.presentation.eff")}
                 </span>
               </div>

@@ -25,7 +25,7 @@ export default function HomeSection(props: any) {
           </div>
           <div
             className='grow flex flex-col justify-end gap-[1em] h-[35vh]'>
-            <h1 className="text-5xl md:text-7xl text-jfd-grey text-left">
+            <h1 className="text-5xl md:text-7xl text-jfd-grey text-left text-shadow-lg shadow-slate-400">
               JFD forage
             </h1>
             <h2 className="text-2xl md:text-2xl text-left text-jfd-grey-light">
