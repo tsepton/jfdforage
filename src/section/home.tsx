@@ -11,7 +11,7 @@ export default function HomeSection(props: any) {
       <div
         id={props.id}
         // TODO 150px - get it from the navbar
-        className={"h-[calc(100vh-150px)] p-5 bg-gradient-to-b from-jfd-blue to-slate-100 md:p-10 flex justify-center content-center" + props.className}
+        className={"h-[calc(100vh-110px)] p-5 bg-gradient-to-b from-slate-300 to-slate-100 md:p-10 flex justify-center content-center" + props.className}
       >
         <div
           className=" w-[90vw] md:w-[77vw] max-w-[80rem] flex flex-col justify-around">
@@ -21,7 +21,7 @@ export default function HomeSection(props: any) {
               alt="JFD forage logo"
               className="h-[22vh] md:h-[25vh] lg:h-[33vh] w-max "
               // FIXME : the logo goes on the navbar when scrolling
-              style={{ 'filter': 'drop-shadow(0 0 0.1rem white)', 'zIndex': '1' }}
+              style={{ 'filter': 'drop-shadow(0 0 0.4rem grey)', 'zIndex': '1' }}
             />
           </div>
           <div
@@ -32,8 +32,8 @@ export default function HomeSection(props: any) {
             <h2 className="text-2xl md:text-2xl text-left text-jfd-grey-light">
               Entreprise spécialisée dans la réalisation de forages géothermiques.
             </h2>
-            <FooterSection className={'pt-[5em]'} currentSection={'#'} moreInfo={true} showContact={false} showText={false}></FooterSection>
           </div>
+          <FooterSection className={'pt-[5em]'} currentSection={'#'} moreInfo={true} showContact={false} showText={false}></FooterSection>
         </div>
       </div>
     </>
