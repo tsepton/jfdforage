@@ -2,6 +2,7 @@ import SectionCard from "@/components/section_card";
 import trans from "@/translations/translator";
 import Section from "../components/section";
 import { title, content, subtitle, highlight } from "./shared_classes";
+import FooterSection from "@/components/footer_section";
 
 export default function PhotoSection(props: any) {
 
@@ -41,6 +42,7 @@ export default function PhotoSection(props: any) {
             {trans.get("sections.geothermal.conclusion")}
           </div>
         </div>
+        <FooterSection className={'pt-[3em]'} currentSection={'#geothermal'} moreInfo={true} showContact={true} showText={false}></FooterSection>
       </SectionCard>
     </Section>
   );

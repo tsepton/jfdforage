@@ -34,8 +34,8 @@ export default function PermitSection(props: any) {
               </a>
             </div>
           </div>
-          <FooterSection className="pt-[3em]" moreInfo={true} showContact={true} currentSection={"#permit"} ></FooterSection >
         </div>
+        <FooterSection className="pt-[3em]" moreInfo={true} showContact={true} currentSection={"#permit"} showText={true} />
       </SectionCard>
     </Section>
   );

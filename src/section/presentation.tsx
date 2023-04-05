@@ -3,6 +3,7 @@ import SectionCard from "@/components/section_card";
 import Section from "../components/section";
 import trans from "@/translations/translator";
 import { content, title } from "./shared_classes";
+import FooterSection from "@/components/footer_section";
 
 export default function PresentationSection(props: any) {
   return (
@@ -53,6 +54,7 @@ export default function PresentationSection(props: any) {
             alt="Picture of Marie"
           ></Profile>
         </div> */}
+        <FooterSection className="pt-[5em]" moreInfo={true} showContact={true} currentSection={"#presentation"} showText={false} />
       </SectionCard>
     </Section>
   );

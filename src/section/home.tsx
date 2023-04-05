@@ -1,3 +1,4 @@
+import FooterSection from '@/components/footer_section';
 import { Button } from 'flowbite-react';
 import React from 'react';
 
@@ -31,8 +32,7 @@ export default function HomeSection(props: any) {
             <h2 className="text-2xl md:text-2xl text-left text-jfd-grey-light">
               Entreprise spécialisée dans la réalisation de forages géothermiques.
             </h2>
-            <Button className="bg-jfd-orange hover:bg-jfd-grey"
-              onClick={moveToPresentation}>Découvrir nos services</Button>
+            <FooterSection className={'pt-[5em]'} currentSection={'#'} moreInfo={true} showContact={false} showText={false}></FooterSection>
           </div>
         </div>
       </div>
