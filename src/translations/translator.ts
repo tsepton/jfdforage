@@ -12,7 +12,8 @@ class Translator {
     }
   }
 
-  public get(path: string): string {
+  // FIXME: take time to refactor type this into different method
+  public get(path: string): string | string[] {
     const word: string = path
       .split(".")
       .reduce((json, key) => json[key], this.translation);
@@ -36,7 +37,7 @@ export enum Language {
   fr,
 }
 
-class TranslationError extends Error {}
+class TranslationError extends Error { }
 
 class MissingLangError extends TranslationError {
   constructor(lang: Language) {
