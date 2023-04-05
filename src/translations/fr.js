@@ -48,5 +48,31 @@ export default {
         "Etc."],
       conclusion: "Vous l’aurez compris, les avantages sont multiples !",
     },
+    service: {
+      title: "Nos services",
+      motivation: "Vous souhaitez réaliser un forage géothermique pour votre future habitation, mais vous ne savez pas quelles démarches entreprendre ?",
+      endMotivation: "Nous sommes là pour vous accompagner !",
+      subtitle: "En pratique « un forage clé sur porte » :",
+      services: [
+        "Nous réalisons votre devis personnalisé gratuitement ;",
+        "Nous déterminons la profondeur nécessaire du forage ;",
+        "Nous vous accompagnons, aidons dans les démarches administratives et/ou nous introduisons votre demande de permis de forage ;",
+        "Nous exécutons votre forage avec savoir-faire ;",
+        "Nous plaçons les sondes géothermiques ;",
+        "Nous accomplissons la cimentation du forage ;",
+        "Nous réalisons des tranchées du forage jusqu’au bâtiment concerné ; ",
+        "Nous effectuons le raccordement du/des forages jusqu’à votre maison (avec ou sans collecteur) ;",
+        "Nous procédons au remplissage du fluide caloporteur des sondes géothermiques."
+      ]
+    },
+    permit: {
+      title: "Administratif et légal",
+      motivation: "Si vous le souhaitez, JFD forage peut se charger du suivi administratif de votre dossier.",
+      belgium: "Je souhaite réaliser un forage géothermique en WALLONIE : Une déclaration de classe 3 auprès de l’administration communale est suffisante. Nous pouvons nous en charger ou vous accompagner dans ces démarches.",
+      belgiumAnswer: "Quand recevrai-je une réponse ? Il faut compter un délai de 30 jours à dater du dépôt de votre déclaration.",
+      luxembourg: "Je souhaite réaliser un forage géothermique au GRAND-DUCHÉ DU LUXEMBOURG : Cette demande requiert plusieurs autorisations ainsi que le respect de différentes conditions préalables. Vous trouverez toutes les modalités pratiques sur le lien suivant :",
+      luxembourgAnswer: "https://guichet.public.lu/fr/entreprises/sectoriel/construction/forages-geothermiques.html",
+      end: "Vous avez des questions ? Nous sommes là pour vous aider, n’hésitez pas à nous contacter !"
+    }
   },
 };
