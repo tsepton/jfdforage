@@ -29,6 +29,7 @@ export default function NavBar(props: any) {
       className={props.className + " fixed w-full shadow-md"}
       fluid={true}
       rounded={true}
+      style={{ 'zIndex': '100' }}
     >
       <Navbar.Brand href="/">
         <img
