@@ -1,7 +1,7 @@
 import SectionCard from "@/components/section_card";
 import trans from "@/translations/translator";
 import Section from "../components/section";
-import { title, content, subtitle, ending } from "./shared_classes";
+import { title, content, subtitle, highlight } from "./shared_classes";
 
 export default function PhotoSection(props: any) {
 
@@ -37,10 +37,9 @@ export default function PhotoSection(props: any) {
             {(trans.get("sections.geothermal.advantages") as string[])
               .map((elem, i) => <div key={i}> - {elem}</div>)}
           </div>
-          <div className={ending + " pt-5"}>
+          <div className={highlight + " pt-5"}>
             {trans.get("sections.geothermal.conclusion")}
           </div>
-
         </div>
       </SectionCard>
     </Section>
