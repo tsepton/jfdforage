@@ -1,6 +1,10 @@
+import { Button } from 'flowbite-react';
 import React from 'react';
 
 export default function HomeSection(props: any) {
+
+  const moveToPresentation = () => window.location.href = "#presentation";
+
   return (
     <>
       <div
@@ -24,6 +28,7 @@ export default function HomeSection(props: any) {
           <h2 className="text-2xl md:text-2xl text-left text-jfd-grey-light">
             Entreprise spécialisée dans la réalisation de forages géothermiques.
           </h2>
+          <Button onClick={moveToPresentation}>Découvrir nos services</Button>
         </div>
       </div>
     </>
