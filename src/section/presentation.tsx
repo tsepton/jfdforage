@@ -1,9 +1,9 @@
+import Profile from "@/components/profile";
 import SectionCard from "@/components/section_card";
 import Section from "../components/section";
 import trans from "@/translations/translator";
 import { content, title } from "./shared_classes";
 import FooterSection from "@/components/footer_section";
-import Image from "next/image";
 
 export default function PresentationSection(props: any) {
   return (
@@ -11,7 +11,7 @@ export default function PresentationSection(props: any) {
       <SectionCard>
         <h1 className={title}>{trans.get("sections.presentation.title")}</h1>
         <div className="flex flex-col md:flex-row-reverse sm:justify-center text-justify">
-          <Image
+          <img
             className="flex-auto m-auto p-5 sm:w-[90%] md:w-[40%] lg:w-1/5 lg:w-[20em] h-fit	"
             src="/img/logo.png"
             alt="Logo JFD forage"

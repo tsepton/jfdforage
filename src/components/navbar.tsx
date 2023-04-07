@@ -1,6 +1,5 @@
 import { Navbar } from "flowbite-react";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import trans from "../translations/translator";
 
 export default function NavBar(props: any) {
@@ -50,7 +49,7 @@ export default function NavBar(props: any) {
     >
       <div>
         <a href="#home">
-          <Image
+          <img
             src="/img/logo.jpg"
             className="mr-3 h-6 sm:h-9"
             alt="JFD forage Logo"
