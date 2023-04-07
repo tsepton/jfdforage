@@ -26,10 +26,10 @@ export default function PresentationSection(props: any) {
               <p className="md-auto justify-self-center">
                 {trans.get("sections.presentation.keyword")}
               </p>
-              <div className={content + " pl-[1.5em]"}>
-                <span>{trans.get("sections.presentation.react")}</span>
-                <span>{trans.get("sections.presentation.prof")}</span>
-                <span>{trans.get("sections.presentation.eff")}</span>
+              <div className={content + "flex pl-[1.5em]"}>
+                <div>{trans.get("sections.presentation.react")}</div>
+                <div>{trans.get("sections.presentation.prof")}</div>
+                <div>{trans.get("sections.presentation.eff")}</div>
               </div>
             </div>
           </span>
