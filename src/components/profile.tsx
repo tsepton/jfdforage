@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 export default function Profile(props: any) {
   return (
     <div className="flex flex-col items-center content-center gap-[1em]">
-      <img
+      <Image
         className="rounded-full w-[12em] h-[12em] shadow-md"
         src={props.src}
         alt={props.alt}
