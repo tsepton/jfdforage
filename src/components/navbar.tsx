@@ -42,7 +42,7 @@ export default function NavBar(props: any) {
   return (
     <Navbar
       id={process.env.navbarId}
-      className={props.className + " fixed w-full shadow-md "}
+      className={props.className + " sticky top-0 w-full shadow-md "}
       fluid={true}
       rounded={true}
       style={{ zIndex: "100" }}
