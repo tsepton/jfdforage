@@ -1,21 +1,25 @@
-import { Button, Navbar } from "flowbite-react";
+import { Navbar } from "flowbite-react";
 import { useEffect, useState } from "react";
 import trans from "../translations/translator";
 
 export default function NavBar(props: any) {
-  const [currentSection, setCurrentSection] = useState("#home");
+  const [currentSection, setCurrentSection] = useState<undefined | string>(
+    undefined
+  );
 
   useEffect(() => {
-    window.location.href = currentSection;
+    if (!currentSection) return;
+    if (window.location.href !== currentSection)
+      window.location.href = currentSection;
     const position: HTMLElement | null =
       document.getElementById(currentSection);
-    // FIXME: scroll is broken for home section
     const block: ScrollLogicalPosition = ["#home", "contact"].includes(
       currentSection
     )
       ? "end"
       : "start";
     position?.scrollIntoView({ behavior: "smooth", block });
+    setCurrentSection(undefined);
   }, [currentSection]);
 
   useEffect(() => {
@@ -27,7 +31,7 @@ export default function NavBar(props: any) {
     };
   }, []);
 
-  // FIXME: any | undefined
+  // FIXME typing
   const updateSection = (e: any, maybeSection: string | undefined) => {
     e?.preventDefault();
     const href: string = maybeSection ?? e.target.href;
@@ -35,12 +39,10 @@ export default function NavBar(props: any) {
     setCurrentSection(section);
   };
 
-  const isActive = (uri: string) => uri === currentSection;
-
   return (
     <Navbar
       id={process.env.navbarId}
-      className={props.className + " fixed w-full shadow-md"}
+      className={props.className + " fixed w-full shadow-md "}
       fluid={true}
       rounded={true}
       style={{ zIndex: "100" }}
@@ -53,54 +55,44 @@ export default function NavBar(props: any) {
             alt="JFD forage Logo"
           />
         </a>
-        {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          JFD forage
-        </span> */}
       </div>
 
       <Navbar.Collapse className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-        {/* <Navbar.Link
-          active={isActive("#")}
-          href="#home"
-          onClick={(e) => updateSection(e, undefined)}
-        >
-          {trans.get("navbar.home")}
-        </Navbar.Link> */}
-        <Navbar.Link
-          active={isActive("#presentation")}
+        <a
+          className="hover:text-jfd-orange"
           href="#presentation"
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.presentation")}
-        </Navbar.Link>
-        <Navbar.Link
-          active={isActive("#geothermal")}
+        </a>
+        <a
+          className="hover:text-jfd-orange"
           href="#geothermal"
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.geothermal")}
-        </Navbar.Link>
-        <Navbar.Link
-          active={isActive("#services")}
+        </a>
+        <a
+          className="hover:text-jfd-orange"
           href="#services"
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.services")}
-        </Navbar.Link>
-        <Navbar.Link
-          active={isActive("#permit")}
+        </a>
+        <a
+          className="hover:text-jfd-orange"
           href="#permit"
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.permit")}
-        </Navbar.Link>
-        <Navbar.Link
-          active={isActive("#photo")}
+        </a>
+        <a
+          className="hover:text-jfd-orange"
           href="#photo"
           onClick={(e) => updateSection(e, undefined)}
         >
           {trans.get("navbar.pic")}
-        </Navbar.Link>
+        </a>
       </Navbar.Collapse>
 
       <div className="flex md:order-2 p-0">
