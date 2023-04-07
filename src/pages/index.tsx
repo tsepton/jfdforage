@@ -12,7 +12,7 @@ export default function Home(props: any) {
   return (
     <Layout>
       <div className="flex flex-col justify-center ">
-        <HomeSection id="#" className="bg-slate-200" />
+        <HomeSection id="#home" className="bg-slate-200" />
         <PresentationSection id="#presentation" className="bg-slate-100" />
         {/* <UnderConstructionSection className="bg-slate-200" /> */}
         <GeothermalSection id="#geothermal" className="bg-slate-200" />
