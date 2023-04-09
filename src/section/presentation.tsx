@@ -10,12 +10,18 @@ export default function PresentationSection(props: any) {
     <Section id={props.id} className={props.className}>
       <SectionCard>
         <h1 className={title}>{trans.get("sections.presentation.title")}</h1>
-        <div className="flex flex-col md:flex-row-reverse sm:justify-center text-justify">
-          <img
+        <div className="flex flex-col md:flex-row-reverse sm:justify-center text-justify gap-[2.5em]">
+          {/* <img
             className="flex-auto m-auto p-5 sm:w-[90%] md:w-[40%] lg:w-1/5 lg:w-[20em] h-fit	"
             src="/img/logo.png"
             alt="Logo JFD forage"
-          />
+          /> */}
+          <Profile
+            src="/img/jean-francois.jpg"
+              className="flex-auto m-auto p-5 max-w-[300px] min-w-[180px] sm:w-[90%] md:w-[40%] lg:w-2/5 h-fit	"
+            name="Jean-François"
+            alt="Picture of Jean-François"
+          ></Profile>
           <span className="flex flex-col gap-[2em]">
             <p
               dangerouslySetInnerHTML={{
