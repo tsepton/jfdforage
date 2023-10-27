@@ -30,7 +30,7 @@ export default function ServiceSection(props: any) {
         </div>
         <FooterSection
           className={"pt-[3em]"}
-          currentSection={"#geothermal"}
+          currentSection={"#services"}
           moreInfo={true}
           showContact={true}
           showText={false}
