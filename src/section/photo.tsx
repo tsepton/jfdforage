@@ -1,47 +1,24 @@
 import SectionCard from "@/components/section_card";
 import trans from "@/translations/translator";
 import { Carousel } from "flowbite-react";
+import Image from "next/image";
 import Section from "../components/section";
-import { title, content as contentClass } from "./shared_classes";
+import static_asset_listing from "../gallerie_files.json";
+import { content as contentClass, title } from "./shared_classes";
+import FooterSection from "@/components/footer_section";
 
 export default function PhotoSection(props: any) {
-  const underConstruction = true;
-
-  const content = underConstruction ? (
-    <p className="text-justify">{trans.get("sections.photo.content")}</p>
-  ) : (
-    <Carousel>
-      <img
-        src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
-        alt="..."
-      />
-      <img
-        src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-        alt="..."
-      />
-      <img
-        src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-        alt="..."
-      />
-      <img
-        src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
-        alt="..."
-      />
-      <img
-        src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
-        alt="..."
-      />
-    </Carousel>
-  );
+  const images = static_asset_listing.map((file) => {
+    const uri = `/img/gallerie/${file}`;
+    return <img key={uri} src={uri} alt="photo chantier" />;
+  });
 
   return (
     <Section id={props.id} className={props.className}>
       <SectionCard>
-        <h1 className={title}>
-          {trans.get("sections.photo.title")}
-        </h1>
-        <div className={contentClass}>
-          {content}
+        {/* <h1 className={title}>{trans.get("sections.photo.title")}</h1> */}
+        <div className={contentClass + "pb-[3em]"} style={{ height: "100% !important" }}>
+          <Carousel>{images}</Carousel>
         </div>
       </SectionCard>
     </Section>
