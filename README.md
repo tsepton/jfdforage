@@ -15,7 +15,7 @@ npm run dev
 
 Use the following commands:
 ```bash
-npm run build
+node update_gallerie_static_listing.js && npm run build
 git add ./out/*
 git commit -m "Deploy new version <version number>"
 ```
