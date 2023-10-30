@@ -35,10 +35,12 @@ export default function PhotoSection(props: any) {
     </div>
   );
 
-  const [selected, setSelectedImg] = useState(undefined);
 
-  const showFullScreen = (e) => {
-    setSelectedImg(e.target);
+  // TODO - proper typing
+  const [selected, setSelectedImg] = useState<any  | undefined>(undefined);
+
+  const showFullScreen: (e: any) => void = (e: any) => {
+    if (!!e && e !== null) setSelectedImg(e!.target!);
   };
 
   const hideFullScreen = () => {
@@ -70,7 +72,7 @@ export default function PhotoSection(props: any) {
           width: "75vw",
           objectFit: "scale-down",
         }}
-        src={selected?.currentSrc}
+        src={selected?.currentSrc!}
         alt="Photo chantier"
       ></img>
     </div>
