@@ -26,6 +26,15 @@ export default function PhotoSection(props: any) {
     );
   });
 
+  const previewContent = (
+    <div
+      className={contentClass + "pb-[3em]"}
+      style={{ height: "50vh !important" }}
+    >
+      <Carousel>{images}</Carousel>
+    </div>
+  );
+
   const [selected, setSelectedImg] = useState(undefined);
 
   const showFullScreen = (e) => {
@@ -36,6 +45,7 @@ export default function PhotoSection(props: any) {
     setSelectedImg(undefined);
   };
 
+  // The full screen picture should be in its own component 
   const fullScreenContent = (
     <div
       className={contentClass + "pb-[3em]"}
@@ -63,14 +73,6 @@ export default function PhotoSection(props: any) {
         src={selected?.currentSrc}
         alt="Photo chantier"
       ></img>
-    </div>
-  );
-  const previewContent = (
-    <div
-      className={contentClass + "pb-[3em]"}
-      style={{ height: "50vh !important" }}
-    >
-      <Carousel>{images}</Carousel>
     </div>
   );
 
