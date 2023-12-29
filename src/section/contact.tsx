@@ -27,7 +27,7 @@ export default function ContactSection(props: any) {
             <span>
               <ContactIcon
                 icon={<Phone />}
-                text="+32 (0) 476/48.32.99"
+                text="+32.476.48.32.99"
                 number
               ></ContactIcon>
               <hr className="my-2	dark:border-gray-700" />
@@ -41,6 +41,7 @@ export default function ContactSection(props: any) {
             <a
               className="text-2xl font-light text-gray-900"
               href="http://maps.google.com/?q=Rue de la Ferme 7B, 5377 NOISEUX (Belgique)"
+              target="_blank"
             >
               <p>Rue de la Ferme 7B,</p>
               <p>5377 NOISEUX (Belgique)</p>

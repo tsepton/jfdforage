@@ -6,7 +6,7 @@ export default function ContactIcon(props: any): ReactElement {
     <div className="flex flex-row items-center gap-[1em] md:gap-[1em] text-2xl font-light text-gray-900">
       <span>{props.icon}</span>
 
-      <a className="min-w-max" href={href}>
+      <a className="min-w-max" href={href} target="_blank">
         {props.text}
       </a>
     </div>

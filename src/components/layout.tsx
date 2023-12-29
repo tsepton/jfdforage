@@ -8,8 +8,14 @@ export default function Layout(props: any) {
     <>
       <Head>
         <title>JFD forage</title>
-        <meta name="description" content="JFD forage, entreprise spécialisée dans le forage géothermique en Belgique et au Luxembourg" />
-        <meta name="keywords" content="JFD, JFD forage, géothermique, puit, forage" />
+        <meta
+          name="description"
+          content="JFD forage, entreprise spécialisée dans le forage géothermique en Belgique et au Luxembourg"
+        />
+        <meta
+          name="keywords"
+          content="JFD, jfdforage, géothermique, puit, forage, pompe à chaleur, géothermie, forage géothermique, géothermie verticale, chaleur du sol"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/img/logo-squared.jpg" />
       </Head>
