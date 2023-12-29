@@ -13,9 +13,7 @@ export default function ContactSection(props: any) {
       <SectionCard>
         <div className="flex flex-col md:flex-row md:flex-row gap-[2em] md:gap-[5em]">
           <div>
-            <h1 className={title}>
-              {trans.get("sections.contact.title")}
-            </h1>
+            <h1 className={title}>{trans.get("sections.contact.title")}</h1>
             <span className={content}>
               <p className="text-justify pb-5">
                 {trans.get("sections.contact.content1")}
@@ -30,18 +28,23 @@ export default function ContactSection(props: any) {
               <ContactIcon
                 icon={<Phone />}
                 text="+32 (0) 476/48.32.99"
+                number
               ></ContactIcon>
               <hr className="my-2	dark:border-gray-700" />
               <ContactIcon
                 icon={<Envelope />}
                 text="info@jfdforage.be"
+                mail
               ></ContactIcon>
             </span>
             <hr className="my-5 border-gray-600" />
-            <span className="text-2xl font-light text-gray-900">
+            <a
+              className="text-2xl font-light text-gray-900"
+              href="http://maps.google.com/?q=Rue de la Ferme 7B, 5377 NOISEUX (Belgique)"
+            >
               <p>Rue de la Ferme 7B,</p>
               <p>5377 NOISEUX (Belgique)</p>
-            </span>{" "}
+            </a>
           </div>
         </div>
       </SectionCard>
