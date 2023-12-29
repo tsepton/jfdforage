@@ -23,8 +23,8 @@ export default function HomeSection(props: any) {
         props.className
       }
     >
-      <div className=" w-[90vw] md:w-[77vw] md:max-w-[120rem] flex flex-col justify-around md:justify-center ">
-        <div className="sticky self-center sm:place-self-end">
+      <div className=" w-[90vw] md:w-[77vw] md:max-w-[85rem] flex flex-col justify-around md:justify-center ">
+        <div className="sticky self-center sm:place-self-end flex justify-center md:justify-end ">
           <img
             src="/img/logo.png"
             alt="JFD forage logo"
