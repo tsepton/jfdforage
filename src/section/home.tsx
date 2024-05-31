@@ -30,7 +30,7 @@ export default function HomeSection(props: any) {
           <img
             src="/img/logo.png"
             alt="JFD forage logo"
-            className="h-[22vh] md:h-[25vh] lg:h-[28vh] w-max "
+            className="md:h-[25vh] lg:h-[28vh] w-max "
             style={{ filter: "drop-shadow(0 0 0.4rem grey)", zIndex: "1" }}
           />
         </div>
