@@ -11,7 +11,7 @@ export default function BackgroundCarousel() {
   });
 
   return (
-    <div className="inset-x-0 top-0 absolute overflow-hidden	">
+    <div className="inset-x-0 top-0 absolute w-screen overflow-hidden	">
       <div className="scroll">
         <div className="m-scroll">{images}</div>
       </div>

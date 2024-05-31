@@ -26,7 +26,7 @@ export default function HomeSection(props: any) {
     >
       <BackgroundCarousel></BackgroundCarousel>
       <div className="-translate-y-10 self-center flex flex-col justify-around md:justify-center backdrop-blur-xl bg-white/30 rounded-md p-12">
-        <div className="sticky self-center w-[90vw] md:w-[77vw] md:max-w-[85rem] sm:place-self-end flex justify-center md:justify-end ">
+        <div className="sticky self-center  w-[70vw] md:w-[77vw] md:max-w-[85rem] sm:place-self-end flex justify-center md:justify-end ">
           <img
             src="/img/logo.png"
             alt="JFD forage logo"
@@ -34,18 +34,18 @@ export default function HomeSection(props: any) {
             style={{ filter: "drop-shadow(0 0 0.4rem grey)", zIndex: "1" }}
           />
         </div>
-        <div className="flex flex-col justify-center w-[90vw] md:w-[77vw] md:max-w-[85rem] h-[35vh]">
-          <div className="flex flex-col justify-end gap-[1em]">
-            <h1 className="text-5xl md:text-7xl text-jfd-grey text-left text-shadow-lg shadow-slate-400">
+        <div className="flex flex-col justify-center w-[70vw] md:w-[77vw] md:max-w-[85rem] h-fit md:h-[35vh] ">
+          <div className="flex flex-col justify-end gap-[1em] pt-12">
+            <h1 className="text-4xl md:text-7xl text-jfd-grey text-center md:text-left text-shadow-lg shadow-slate-400">
               JFD forage
             </h1>
-            <h2 className="text-2xl md:text-2xl text-left text-jfd-grey-light">
+            <h2 className="text-xl md:text-2xl text-center md:text-left text-jfd-grey-light">
               Entreprise spécialisée dans la réalisation de forages
               géothermiques.
             </h2>
           </div>
           <FooterSection
-            className={"pt-[5em]"}
+            className={"pt-[1em] md:pt-[5em]"}
             currentSection={"#"}
             moreInfo={true}
             showContact={false}
