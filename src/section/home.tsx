@@ -1,5 +1,6 @@
 import FooterSection from "@/components/footer_section";
 import React, { useEffect, useState } from "react";
+import BackgroundCarousel from "@/components/background_carousel";
 
 export default function HomeSection(props: any) {
   // const [height, setHeight] = useState(0);
@@ -19,12 +20,13 @@ export default function HomeSection(props: any) {
       id={props.id}
       // TODO `h-[calc(100vh - ${height}px)]` not working - what the fuck
       className={
-        `h-screen p-5 pb-10 bg-gradient-to-b from-slate-300 to-slate-100 md:p-10 flex justify-center content-center ` +
+        `h-screen p-5 pb-10 bg-gradient-to-b from-transparent to-slate-100 md:p-10 flex justify-center content-center ` +
         props.className
       }
     >
-      <div className=" w-[90vw] md:w-[77vw] md:max-w-[85rem] flex flex-col justify-around md:justify-center ">
-        <div className="sticky self-center sm:place-self-end flex justify-center md:justify-end ">
+      <BackgroundCarousel></BackgroundCarousel>
+      <div className="-translate-y-10 self-center flex flex-col justify-around md:justify-center backdrop-blur-xl bg-white/30 rounded-md p-12">
+        <div className="sticky self-center w-[90vw] md:w-[77vw] md:max-w-[85rem] sm:place-self-end flex justify-center md:justify-end ">
           <img
             src="/img/logo.png"
             alt="JFD forage logo"
@@ -32,7 +34,7 @@ export default function HomeSection(props: any) {
             style={{ filter: "drop-shadow(0 0 0.4rem grey)", zIndex: "1" }}
           />
         </div>
-        <div className="flex flex-col justify-center  h-[35vh]">
+        <div className="flex flex-col justify-center w-[90vw] md:w-[77vw] md:max-w-[85rem] h-[35vh]">
           <div className="flex flex-col justify-end gap-[1em]">
             <h1 className="text-5xl md:text-7xl text-jfd-grey text-left text-shadow-lg shadow-slate-400">
               JFD forage

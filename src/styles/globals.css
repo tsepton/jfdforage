@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.debug {
+  border: 1px solid red;
+}
+
+/* See background_carousel component */
+.scroll {
+  position: relative;
+  height: 105vh;
+  width: fit-content;
+  z-index: -1;
+  translate: 0;
+  animation: scrollText 400s infinite linear;
+  filter: blur(5px);
+}
+
+.m-scroll {
+  overflow: hidden;
+  display: flex;
+  justify-content: start;
+  width: max-content;
+}
+
+.m-scroll > span > img {
+  height: 105vh;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-90%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
