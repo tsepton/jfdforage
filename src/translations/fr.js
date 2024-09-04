@@ -1,4 +1,4 @@
-export default {
+const translation = {
   navbar: {
     home: "Accueil",
     presentation: "Présentation",
@@ -94,3 +94,5 @@ export default {
     },
   },
 };
+
+export default translation;
