@@ -13,7 +13,7 @@ npm run dev
 
 ## Deployment
 
-Use the following commands:
+Use the following commands (should be a Github action if I find the time to do so)
 ```bash
 node update_gallerie_static_listing.js && npm run build
 git add ./out/*
