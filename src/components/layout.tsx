@@ -17,7 +17,7 @@ export default function Layout(props: any) {
           content="JFD, jfdforage, géothermique, puit, forage, pompe à chaleur, géothermie, forage géothermique, géothermie verticale, chaleur du sol"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/img/logo-squared.jpg" />
+        <link rel="icon" href="/img/logo-squared.webp" />
       </Head>
       <main className="flex h-auto flex-col">
         <NavBar className="flex-1"></NavBar>

@@ -9,7 +9,7 @@ export default function FooterM(props: any) {
       <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
         <TailwindFooter.Brand
           href="/"
-          src="img/logo.jpg"
+          src="img/logo.webp"
           alt="JFD forage Logo"
         />
         <TailwindFooter.Copyright

@@ -1,6 +1,6 @@
 
 <div style="text-align: center">
-<img src="public\img\logo.jpg" width="200" />
+<img src="public\img\logo.webp" width="200" />
 </div>
 
 ## Running locally

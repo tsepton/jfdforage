@@ -28,7 +28,7 @@ export default function HomeSection(props: any) {
       <div className="-translate-y-10 self-center flex flex-col justify-around md:justify-center backdrop-blur-xl bg-white/30 rounded-md p-12">
         <div className="sticky self-center  w-[70vw] md:w-[77vw] md:max-w-[85rem] sm:place-self-end flex justify-center md:justify-end ">
           <img
-            src="/img/logo.png"
+            src="/img/logo.webp"
             alt="JFD forage logo"
             className="md:h-[25vh] lg:h-[28vh] w-max "
             style={{ filter: "drop-shadow(0 0 0.4rem grey)", zIndex: "1" }}

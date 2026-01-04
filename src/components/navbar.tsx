@@ -44,7 +44,7 @@ export default function NavBar(props: any) {
     <Navbar id={process.env.navbarId} fluid rounded style={{ zIndex: "100" }}>
       <Navbar.Brand href="https://flowbite-react.com">
         <img
-          src="/img/logo.jpg"
+          src="/img/logo.webp"
           className="mr-3 h-6 sm:h-9"
           alt="JFD forage Logo"
         />
