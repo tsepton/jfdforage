@@ -42,7 +42,7 @@ export default function FooterSection(props: {
     : <></>;
 
   const info = props.moreInfo
-    ? <a href={nextSection} className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">  {trans.get("sections.info")}  </a>
+    ? <a href={nextSection} className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 border border-gray-300 bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:bg-gray-700 dark:focus:ring-gray-800">  {trans.get("sections.info")}  </a>
     : <></>;
 
   return (

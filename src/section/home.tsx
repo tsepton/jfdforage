@@ -1,51 +1,40 @@
 import FooterSection from "@/components/footer_section";
+import trans from "@/translations/translator";
 import React, { useEffect, useState } from "react";
-import BackgroundCarousel from "@/components/background_carousel";
 
 export default function HomeSection(props: any) {
-  // const [height, setHeight] = useState(0);
-
-  // const handleSize = () => {
-  //   setHeight(getNavbarHeight());
-  // };
-
-  // useEffect(handleSize, []);
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", handleSize, false);
-  // }, []);
 
   return (
     <div
       id={props.id}
       // TODO `h-[calc(100vh - ${height}px)]` not working - what the fuck
       className={
-        `h-screen p-5 pb-10 bg-gradient-to-b from-transparent to-slate-100 md:p-10 flex justify-center content-center ` +
+        `relative h-screen bg-slate-100 p-5 pb-10 md:p-10 flex justify-center content-center overflow-hidden ` +
         props.className
       }
     >
-      <BackgroundCarousel></BackgroundCarousel>
-      <div className="-translate-y-10 self-center flex flex-col justify-around md:justify-center backdrop-blur-xl bg-white/30 rounded-md p-12">
-        <div className="sticky self-center  w-[70vw] md:w-[77vw] md:max-w-[85rem] sm:place-self-end flex justify-center md:justify-end ">
-          <img
-            src="/img/logo.webp"
-            alt="JFD forage logo"
-            className="md:h-[25vh] lg:h-[28vh] w-max "
-            style={{ filter: "drop-shadow(0 0 0.4rem grey)", zIndex: "1" }}
-          />
+      <img
+        src="/img/cover.webp"
+        alt="JFD forage logo"
+        className="inset-x-0 top-0 absolute brightness-75"
+        style={{ zIndex: "0", marginInline: "auto", minWidth: "100vw", minHeight: "100vh", objectFit: "cover", objectPosition: "center" }}
+      />
+
+      <div className="-translate-y-10 self-center flex flex-col justify-around md:justify-center p-12">
+        <div className="sticky self-center  w-[70vw] md:w-[77vw] md:max-w-[85rem] sm:place-self-end flex justify-center md:justify-start ">
         </div>
         <div className="flex flex-col justify-center w-[70vw] md:w-[77vw] md:max-w-[85rem] h-fit md:h-[35vh] ">
           <div className="flex flex-col justify-end gap-[1em] pt-12">
-            <h1 className="text-4xl md:text-7xl text-jfd-grey text-center md:text-left text-shadow-lg shadow-slate-400">
+            <h1 className="text-6xl md:text-7xl text-white text-left md:text-left">
               JFD forage
             </h1>
-            <h2 className="text-xl md:text-2xl text-center md:text-left text-jfd-grey-light">
+            <h2 className="text-xl md:text-2xl text-left md:text-left text-white">
               Entreprise spécialisée dans la réalisation de forages
               géothermiques.
             </h2>
           </div>
           <FooterSection
-            className={"pt-[1em] md:pt-[5em]"}
+            className={"pt-[10em] md:pt-[15em]"}
             currentSection={"#"}
             moreInfo={true}
             showContact={false}
@@ -55,17 +44,4 @@ export default function HomeSection(props: any) {
       </div>
     </div>
   );
-}
-
-function getNavbarHeight() {
-  if (!process.env.navbarId)
-    throw new Error(
-      "No navbar id. Check next config file for the navbarId variable."
-    );
-  const navbarRef = document.getElementById(process.env.navbarId);
-  if (!navbarRef)
-    throw new Error(
-      "No navbar element. Did you forget to include it inside the project?"
-    );
-  return navbarRef.clientHeight;
 }
