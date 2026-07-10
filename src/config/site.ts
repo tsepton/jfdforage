@@ -49,9 +49,23 @@ export const ALL_SECTION_IDS = [
   "contact",
 ] as const;
 
-/** Hero stat strip. */
-export const HERO_HIGHLIGHTS: { value: string; label: string }[] = [
-  { value: "12 ans", label: "d’expérience du forage" },
-  { value: "Clé sur porte", label: "du devis au raccordement" },
-  { value: "Énergie renouvelable", label: "respectueuse de l’environnement" },
-];
+/**
+ * Year Jean-François started in the drilling trade. Experience is derived from
+ * this so the figure stays accurate over time (12 years when the site launched
+ * in 2022, 16 in 2026, ...).
+ */
+export const EXPERIENCE_SINCE_YEAR = 2010;
+
+/** Years of drilling experience as of the given date (defaults to now). */
+export function yearsOfExperience(now: Date = new Date()): number {
+  return now.getFullYear() - EXPERIENCE_SINCE_YEAR;
+}
+
+/** Hero stat strip (experience is computed, so it stays current). */
+export function heroHighlights(): { value: string; label: string }[] {
+  return [
+    { value: `${yearsOfExperience()} ans`, label: "d’expérience du forage" },
+    { value: "Clé sur porte", label: "du devis au raccordement" },
+    { value: "Énergie renouvelable", label: "respectueuse de l’environnement" },
+  ];
+}

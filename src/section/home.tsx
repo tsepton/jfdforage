@@ -2,7 +2,7 @@ import trans from "@/translations/translator";
 import Button from "@/components/button";
 import Container from "@/components/container";
 import { Check, Phone } from "@/components/icons";
-import { CONTACT, HERO_HIGHLIGHTS } from "@/config/site";
+import { CONTACT, heroHighlights } from "@/config/site";
 
 const OVERLAY =
   "linear-gradient(180deg, rgba(11,42,49,.35) 0%, rgba(11,42,49,.15) 30%, rgba(11,42,49,.55) 72%, rgba(11,42,49,.9) 100%), linear-gradient(105deg, rgba(6,107,127,.62) 0%, rgba(6,107,127,.12) 55%, rgba(9,164,195,.05) 100%)";
@@ -61,7 +61,7 @@ export default function HomeSection({ id }: { id?: string }) {
           className="mt-10 grid overflow-hidden rounded-jfd border border-white/15 backdrop-blur-sm sm:grid-cols-3 md:mt-14"
           style={{ gap: "1px", background: "rgba(255,255,255,.14)" }}
         >
-          {HERO_HIGHLIGHTS.map((item) => (
+          {heroHighlights().map((item) => (
             <div key={item.value} className="bg-[rgba(11,42,49,0.34)] px-5 py-4">
               <b className="block font-heading text-[15px] font-extrabold text-white">
                 {item.value}

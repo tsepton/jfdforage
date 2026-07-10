@@ -106,14 +106,24 @@ export default function ContactSection({ id }: { id?: string }) {
                   {trans.get("sections.questions")}
                 </p>
               </div>
-              <Button
-                href={CONTACT.emailHref}
-                variant="primary"
-                arrow
-                className="relative self-start"
-              >
-                {trans.get("sections.quote")}
-              </Button>
+              <div>
+                <Button
+                  href={CONTACT.emailHref}
+                  variant="primary"
+                  arrow
+                  className="relative self-start mr-3"
+                >
+                  {trans.get("sections.quote")}
+                </Button>
+                <Button
+                  href={CONTACT.emailHref}
+                  variant="call"
+                  arrow
+                  className="relative self-start"
+                >
+                  {trans.get("sections.call")}
+                </Button>
+              </div>
             </aside>
           </div>
         </Reveal>

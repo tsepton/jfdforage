@@ -3,6 +3,7 @@ import Section from "@/components/section";
 import Container from "@/components/container";
 import Reveal from "@/components/reveal";
 import { BarChart, Bolt, ShieldCheck } from "@/components/icons";
+import { yearsOfExperience } from "@/config/site";
 
 const VALUES = [
   { key: "react", label: "Réactivité", Icon: Bolt },
@@ -24,7 +25,7 @@ export default function PresentationSection({ id }: { id?: string }) {
               />
               <div className="absolute -left-3.5 bottom-6 flex items-center gap-3 rounded-jfd border border-jfd-line bg-jfd-surface px-4 py-3.5 shadow-jfd-md">
                 <b className="tnum font-heading text-[26px] font-extrabold leading-none text-jfd-teal">
-                  12
+                  {yearsOfExperience()}
                 </b>
                 <span className="max-w-[15ch] text-[13px] leading-tight text-jfd-ink-soft">
                   années d’expérience dans le forage
@@ -42,7 +43,9 @@ export default function PresentationSection({ id }: { id?: string }) {
               {trans.get("sections.presentation.title")}
             </h2>
             <p className="text-lg leading-relaxed text-jfd-ink-soft">
-              {trans.get("sections.presentation.content")}
+              {trans
+                .get("sections.presentation.content")
+                .replace("{years}", String(yearsOfExperience()))}
             </p>
 
             <p className="mb-3 mt-8 font-heading text-sm font-semibold text-jfd-ink-soft">
