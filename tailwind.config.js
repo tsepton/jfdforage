@@ -1,44 +1,44 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require('tailwindcss/plugin');
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/flowbite/**/*.js",
-    "./node_modules/flowbite-react/**/*.js",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      textShadow: {
-        sm: '0 1px 2px var(--tw-shadow-color)',
-        DEFAULT: '0 2px 4px var(--tw-shadow-color)',
-        lg: '0 8px 16px var(--tw-shadow-color)',
+      fontFamily: {
+        sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
+        heading: ["var(--font-heading)", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         jfd: {
+          ground: "#F7F9F9",
+          "ground-2": "#ECF4F5",
+          surface: "#FFFFFF",
+          wash: "#ECFBFE",
+          ink: "#14252A",
+          "ink-soft": "#4A5C61",
+          "ink-faint": "#8A9AA0",
+          line: "#E1EAEB",
+          teal: "#066B7F",
+          "teal-bright": "#09A4C3",
+          "teal-deep": "#0B2A31",
+          orange: "#F18F34",
+          "orange-strong": "#E07D22",
+          // legacy brand keys kept for safety
           grey: "#373737",
-          "grey-light": "#5C5C5C",
-          "grey-lighter": "#F5F5F5",
-          blue: "#066b7f",
-          "blue-light": "#09A4C3",
-          "blue-lighter": "#ECFBFE",
-          orange: "#f18f34",
-          "orange-light": "#F4AB66",
+          blue: "#066B7F",
         },
+      },
+      boxShadow: {
+        "jfd-sm": "0 1px 2px rgba(11,42,49,.06), 0 2px 8px rgba(11,42,49,.05)",
+        "jfd-md": "0 8px 24px rgba(11,42,49,.09), 0 2px 6px rgba(11,42,49,.05)",
+        "jfd-lg": "0 24px 60px rgba(11,42,49,.16)",
+      },
+      borderRadius: {
+        jfd: "16px",
+        "jfd-lg": "22px",
       },
     },
   },
-  plugins: [
-    require("flowbite/plugin"),
-    plugin(({ matchUtilities, theme }) => {
-      matchUtilities(
-        {
-          'text-shadow': (value) => ({
-            textShadow: value,
-          }),
-        },
-        { values: theme('textShadow') }
-      );
-    }),
-  ],
+  plugins: [],
 };

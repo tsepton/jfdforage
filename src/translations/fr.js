@@ -13,6 +13,14 @@ const translation = {
     questions: "Vous avez des questions ? Nous sommes là pour vous aider !",
     info: "En savoir plus",
     getInTouch: "Nous contacter",
+    quote: "Demander un devis",
+    call: "Appelez-nous",
+    home: {
+      title: "JFD forage",
+      tagline:
+        "Entreprise spécialisée dans la réalisation de forages géothermiques.",
+      sub: "Puiser et exploiter l’énergie de la terre pour chauffer et rafraîchir votre bâtiment.",
+    },
     presentation: {
       title: "Qui sommes-nous ? Plus de transparence…",
       content:
@@ -24,6 +32,8 @@ const translation = {
     },
     contact: {
       title: "Nous contacter",
+      asideEyebrow: "Devis gratuit",
+      asideTitle: "Prêt à exploiter l’énergie de la terre ?",
       content1:
         "Vous souhaitez un devis ou tout simplement de plus amples informations ?",
       content2:
@@ -31,7 +41,9 @@ const translation = {
     },
     photo: {
       title: "Galerie photos",
-      content: "En cours de construction…",
+      heading: "Nos chantiers de forage",
+      content: "Quelques réalisations sur le terrain, en Belgique et au Luxembourg.",
+      note: "Découvrez l’ensemble de nos chantiers dans la galerie complète.",
     },
     geothermal: {
       title: "Qu'est-ce que la géothermie ?",
@@ -78,6 +90,9 @@ const translation = {
     },
     permit: {
       title: "Administratif et permis",
+      belgiumRegion: "Wallonie · Belgique",
+      luxembourgRegion: "Grand-Duché du Luxembourg",
+      linkLabel: "Consulter les modalités",
       motivation:
         "Si vous le souhaitez, JFD forage peut se charger du suivi administratif de votre dossier.",
       belgium: "Je souhaite réaliser un forage géothermique en WALLONIE",

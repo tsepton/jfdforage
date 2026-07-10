@@ -1,58 +1,45 @@
 import fr from "./fr";
 
+type TranslationNode = string | string[] | { [key: string]: TranslationNode };
+
 class Translator {
-  current: Language = Language.fr;
+  private readonly translation = fr as unknown as Record<string, TranslationNode>;
 
-  get translation(): any {
-    switch (this.current) {
-      case Language.fr:
-        return fr;
-      default:
-        throw new MissingLangError(this.current);
+  private resolve(path: string): TranslationNode | undefined {
+    return path.split(".").reduce<TranslationNode | undefined>((node, key) => {
+      if (node && typeof node === "object" && !Array.isArray(node)) {
+        return node[key];
+      }
+      return undefined;
+    }, this.translation);
+  }
+
+  /** Look up a single translation string. */
+  public get(path: string): string {
+    const value = this.resolve(path);
+    if (typeof value !== "string") {
+      throw new MissingKeyError(path, "string");
     }
+    return value;
   }
 
-  // FIXME: take time to refactor type this into different method
-  public get(path: string): string | string[] {
-    const word: string = path
-      .split(".")
-      .reduce((json, key) => json[key], this.translation);
-    if (word === undefined)
-      throw new MissingKeyError(`Translation for key '${path}' does not exist`);
-    return word;
-  }
-
-  public set(lang: Language): void {
-    switch (lang) {
-      case Language.fr:
-        this.current = lang;
-        break;
-      default:
-        throw new MissingLangError(lang);
+  /** Look up a translation that is a list of strings. */
+  public getList(path: string): string[] {
+    const value = this.resolve(path);
+    if (!Array.isArray(value)) {
+      throw new MissingKeyError(path, "string[]");
     }
+    return value;
   }
 }
 
-export enum Language {
-  fr,
-}
-
-class TranslationError extends Error { }
-
-class MissingLangError extends TranslationError {
-  constructor(lang: Language) {
-    super(`Language ${lang} is not available.`);
-    this.name = "MissingLangError";
-  }
-}
-
-class MissingKeyError extends TranslationError {
-  constructor(key: string) {
-    super(`Key ${key} is not available for this translation.`);
+class MissingKeyError extends Error {
+  constructor(key: string, expected: string) {
+    super(`Translation key '${key}' is missing or is not a ${expected}.`);
     this.name = "MissingKeyError";
   }
 }
 
-const trans: Translator = new Translator();
+const trans = new Translator();
 
 export default trans;

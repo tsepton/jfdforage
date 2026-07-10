@@ -1,115 +1,123 @@
-import { Navbar } from "flowbite-react";
 import { useEffect, useState } from "react";
-import trans from "../translations/translator";
+import trans from "@/translations/translator";
+import { ALL_SECTION_IDS, NAV_SECTIONS } from "@/config/site";
+import Container from "./container";
+import Button from "./button";
+import { Close, Menu } from "./icons";
 
-export default function NavBar(props: any) {
-  const [currentSection, setCurrentSection] = useState<undefined | string>(
-    undefined
-  );
+const LINKS = [{ id: "home", labelKey: "navbar.home" }, ...NAV_SECTIONS];
 
-  useEffect(() => {
-    if (!currentSection) return;
-    if (window.location.href !== currentSection)
-      window.location.href = currentSection;
-    const position: HTMLElement | null =
-      document.getElementById(currentSection);
-    const block: ScrollLogicalPosition = ["#home", "contact"].includes(
-      currentSection
-    )
-      ? "end"
-      : "start";
-    position?.scrollIntoView({ behavior: "smooth", block });
-    setCurrentSection(undefined);
-  }, [currentSection]);
+export default function NavBar() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeId, setActiveId] = useState("home");
 
   useEffect(() => {
-    // FIXME - does not work on page reload
-    const updateOnUrlChange = () =>
-      updateSection(undefined, window.location.href);
-    window.addEventListener("popstate", updateOnUrlChange);
-    return () => {
-      window.removeEventListener("popstate", updateOnUrlChange);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // FIXME typing
-  const updateSection = (e: any, maybeSection: string | undefined) => {
-    e?.preventDefault();
-    const href: string = maybeSection ?? e.target.href;
-    const section: string = href.slice(href.indexOf("#"), href.length);
-    setCurrentSection(section);
-  };
+  useEffect(() => {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveId(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    ALL_SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
+    return () => spy.disconnect();
+  }, []);
 
   return (
-    <Navbar id={process.env.navbarId} fluid rounded style={{ zIndex: "100" }}>
-      <Navbar.Brand href="https://flowbite-react.com">
-        <img
-          src="/img/logo.webp"
-          className="mr-3 h-6 sm:h-9"
-          alt="JFD forage Logo"
-        />
-      </Navbar.Brand>
-
-      <div className="flex md:order-2 ">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 h-[68px] backdrop-blur-md backdrop-saturate-150 transition-colors duration-300 ${
+        scrolled
+          ? "border-b border-jfd-line bg-jfd-ground/80 shadow-jfd-sm"
+          : "border-b border-transparent bg-jfd-ground/70"
+      }`}
+    >
+      <Container className="flex h-full items-center justify-between gap-5">
         <a
-          href="#contact"
-          className="inline-flex justify-center items-center py-2 px-3 text-base text-center text-white bg-jfd-orange hover:bg-jfd-grey focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+          href="#home"
+          className="flex shrink-0 items-center"
+          aria-label="JFD forage — accueil"
         >
-          {trans.get("sections.getInTouch")}
-          <svg
-            aria-hidden="true"
-            className="ml-2 -mr-1 w-5 h-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+          <img
+            src="/img/logo.webp"
+            alt="JFD forage — forage géothermique"
+            className="h-9 w-auto"
+          />
+        </a>
+
+        <nav
+          className="hidden items-center gap-1 lg:flex"
+          aria-label="Navigation principale"
+        >
+          {LINKS.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              className={`whitespace-nowrap rounded-full px-3.5 py-2 font-heading text-[14.5px] font-semibold transition ${
+                activeId === link.id
+                  ? "text-jfd-teal"
+                  : "text-jfd-ink-soft hover:bg-jfd-teal/[0.07] hover:text-jfd-ink"
+              }`}
+            >
+              {trans.get(link.labelKey)}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex shrink-0 items-center gap-2.5">
+          <div className="hidden lg:block">
+            <Button href="#contact" variant="primary">
+              {trans.get("sections.quote")}
+            </Button>
+          </div>
+          <button
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-[42px] w-[42px] items-center justify-center rounded-[10px] border border-jfd-line text-jfd-ink lg:hidden"
           >
-            <path
-              fillRule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-        </a>
-        <Navbar.Toggle />
-      </div>
+            {open ? <Close className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </Container>
 
-      <Navbar.Collapse className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-        <a
-          className="hover:text-jfd-orange"
-          href="#presentation"
-          onClick={(e) => updateSection(e, undefined)}
-        >
-          {trans.get("navbar.presentation")}
-        </a>
-        <a
-          className="hover:text-jfd-orange"
-          href="#geothermal"
-          onClick={(e) => updateSection(e, undefined)}
-        >
-          {trans.get("navbar.geothermal")}
-        </a>
-        <a
-          className="hover:text-jfd-orange"
-          href="#services"
-          onClick={(e) => updateSection(e, undefined)}
-        >
-          {trans.get("navbar.services")}
-        </a>
-        <a
-          className="hover:text-jfd-orange"
-          href="#permit"
-          onClick={(e) => updateSection(e, undefined)}
-        >
-          {trans.get("navbar.permit")}
-        </a>
-        <a
-          className="hover:text-jfd-orange"
-          href="#photo"
-          onClick={(e) => updateSection(e, undefined)}
-        >
-          {trans.get("navbar.pic")}
-        </a>
-      </Navbar.Collapse>
-    </Navbar>
+      {open && (
+        <div className="border-b border-jfd-line bg-jfd-surface shadow-jfd-md lg:hidden">
+          <Container className="flex flex-col gap-1 py-3">
+            {LINKS.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={() => setOpen(false)}
+                className={`rounded-lg px-3.5 py-3 font-heading text-base font-semibold ${
+                  activeId === link.id ? "text-jfd-teal" : "text-jfd-ink-soft"
+                }`}
+              >
+                {trans.get(link.labelKey)}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="mt-2 rounded-full bg-jfd-orange px-5 py-3 text-center font-heading font-bold text-[#3a1d00]"
+            >
+              {trans.get("sections.quote")}
+            </a>
+          </Container>
+        </div>
+      )}
+    </header>
   );
 }
