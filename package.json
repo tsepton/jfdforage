@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node update_gallerie_static_listing.js",
     "build": "next build && next export",
     "start": "next dev",
     "lint": "next lint"
