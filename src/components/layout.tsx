@@ -1,13 +1,13 @@
-import NavBar from "@/components/navbar";
-import FooterM from "@/components/footer";
 import Head from "next/head";
-import React from "react";
+import { ReactNode } from "react";
+import NavBar from "./navbar";
+import Footer from "./footer";
 
-export default function Layout(props: any) {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Head>
-        <title>JFD forage</title>
+        <title>JFD forage — Forage géothermique en Belgique &amp; Luxembourg</title>
         <meta
           name="description"
           content="JFD forage, entreprise spécialisée dans le forage géothermique en Belgique et au Luxembourg"
@@ -19,11 +19,9 @@ export default function Layout(props: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/img/logo-squared.webp" />
       </Head>
-      <main className="flex h-auto flex-col">
-        <NavBar className="flex-1"></NavBar>
-        <div className="flex-1 text-center">{props.children} </div>
-        <FooterM className="flex-none"></FooterM>
-      </main>
+      <NavBar />
+      <main>{children}</main>
+      <Footer />
     </>
   );
 }

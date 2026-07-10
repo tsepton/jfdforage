@@ -1,65 +1,71 @@
-import Profile from "@/components/profile";
-import SectionCard from "@/components/section_card";
-import Section from "../components/section";
 import trans from "@/translations/translator";
-import { content, title } from "./shared_classes";
-import FooterSection from "@/components/footer_section";
+import Section from "@/components/section";
+import Container from "@/components/container";
+import Reveal from "@/components/reveal";
+import { BarChart, Bolt, ShieldCheck } from "@/components/icons";
 
-export default function PresentationSection(props: any) {
+const VALUES = [
+  { key: "react", label: "Réactivité", Icon: Bolt },
+  { key: "prof", label: "Professionnalisme", Icon: ShieldCheck },
+  { key: "eff", label: "Efficacité", Icon: BarChart },
+];
+
+export default function PresentationSection({ id }: { id?: string }) {
   return (
-    <Section id={props.id} className={props.className}>
-      <SectionCard>
-        <h1 className={title}>{trans.get("sections.presentation.title")}</h1>
-        <div className="flex flex-col md:flex-row-reverse sm:justify-center text-justify gap-[2.5em]">
-          {/* <img
-            className="flex-auto m-auto p-5 sm:w-[90%] md:w-[40%] lg:w-1/5 lg:w-[20em] h-fit	"
-            src="/img/logo.webp"
-            alt="Logo JFD forage"
-          /> */}
-          <Profile
-            src="/img/jean-francois.webp"
-              className="flex-auto m-auto p-5 max-w-[300px] min-w-[180px] sm:w-[90%] md:w-[40%] lg:w-2/5 h-fit	"
-            name="Jean-François"
-            alt="Picture of Jean-François"
-          ></Profile>
-          <span className="flex flex-col gap-[2em]">
-            <p
-              dangerouslySetInnerHTML={{
-                __html: trans.get("sections.presentation.content") as string,
-              }}
-            ></p>
-            <div className="flex flex-col justify-around gap-[1em]">
-              <p className="md-auto justify-self-center">
-                {trans.get("sections.presentation.keyword")}
-              </p>
-              <div className={content + "flex pl-[1.5em]"}>
-                <div>{trans.get("sections.presentation.react")}</div>
-                <div>{trans.get("sections.presentation.prof")}</div>
-                <div>{trans.get("sections.presentation.eff")}</div>
+    <Section id={id}>
+      <Container>
+        <div className="grid items-center gap-8 md:gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-[68px]">
+          <Reveal>
+            <div className="relative">
+              <img
+                src="/img/jean-francois.webp"
+                alt="Jean-François, fondateur de JFD forage"
+                className="aspect-[4/5] w-full rounded-jfd-lg object-cover shadow-jfd-lg"
+              />
+              <div className="absolute -left-3.5 bottom-6 flex items-center gap-3 rounded-jfd border border-jfd-line bg-jfd-surface px-4 py-3.5 shadow-jfd-md">
+                <b className="tnum font-heading text-[26px] font-extrabold leading-none text-jfd-teal">
+                  12
+                </b>
+                <span className="max-w-[15ch] text-[13px] leading-tight text-jfd-ink-soft">
+                  années d’expérience dans le forage
+                </span>
               </div>
             </div>
-          </span>
+          </Reveal>
+
+          <Reveal>
+            <span className="mb-4 inline-flex items-center gap-2.5 font-heading text-[13px] font-semibold uppercase tracking-[0.16em] text-jfd-teal">
+              <span className="h-0.5 w-6 rounded-full bg-gradient-to-r from-jfd-teal to-jfd-teal-bright" />
+              {trans.get("navbar.presentation")}
+            </span>
+            <h2 className="mb-5 font-heading text-3xl font-extrabold leading-[1.1] text-jfd-ink md:text-[2.5rem]">
+              {trans.get("sections.presentation.title")}
+            </h2>
+            <p className="text-lg leading-relaxed text-jfd-ink-soft">
+              {trans.get("sections.presentation.content")}
+            </p>
+
+            <p className="mb-3 mt-8 font-heading text-sm font-semibold text-jfd-ink-soft">
+              {trans.get("sections.presentation.keyword")}
+            </p>
+            <div className="grid gap-3.5 sm:grid-cols-3">
+              {VALUES.map(({ key, label, Icon }) => (
+                <div
+                  key={key}
+                  className="rounded-jfd border border-jfd-line bg-jfd-surface p-4 shadow-jfd-sm"
+                >
+                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-[10px] bg-jfd-wash text-jfd-teal">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <b className="font-heading text-base font-bold text-jfd-ink">
+                    {label}
+                  </b>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
-        {/* <div className="flex flex-col sm:flex-row justify-center content-center  pt-20 p-5 md:p-10 gap-[3em] sm:gap-[20%]">
-          <Profile
-            src="/img/jean-francois.webp"
-            name="Jean-François"
-            alt="Picture of Jean-François"
-          ></Profile>
-          <Profile
-            src="/img/marie.webp"
-            name="Marie"
-            alt="Picture of Marie"
-          ></Profile>
-        </div> */}
-        <FooterSection
-          className="pt-[5em]"
-          moreInfo={true}
-          showContact={true}
-          currentSection={"#presentation"}
-          showText={false}
-        />
-      </SectionCard>
+      </Container>
     </Section>
   );
 }

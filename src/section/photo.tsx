@@ -1,92 +1,57 @@
-import SectionCard from "@/components/section_card";
-import trans from "@/translations/translator";
-import { Carousel } from "flowbite-react";
-import Image from "next/image";
-import Section from "../components/section";
-import static_asset_listing from "../gallerie_files.json";
-import { content as contentClass, title } from "./shared_classes";
-import FooterSection from "@/components/footer_section";
 import { useState } from "react";
+import trans from "@/translations/translator";
+import Section from "@/components/section";
+import Container from "@/components/container";
+import SectionHeader from "@/components/section_header";
+import Reveal from "@/components/reveal";
+import Lightbox from "@/components/lightbox";
+import { ImageStack } from "@/components/icons";
+import { GALLERY_PATH } from "@/config/site";
+import galleryFiles from "@/gallerie_files.json";
 
-export default function PhotoSection(props: any) {
-  // TODO - refactor this mess
-
-  const images = static_asset_listing.map((file) => {
-    const uri = `/img/gallerie/${file}`;
-    return (
-      <img
-        onClick={(e) => showFullScreen(e)}
-        key={uri}
-        src={uri}
-        alt="Photo chantier"
-        style={{
-          cursor: "pointer",
-        }}
-      />
-    );
-  });
-
-  const previewContent = (
-    <div
-      className={contentClass + "pb-[3em]"}
-      style={{ height: "50vh !important" }}
-    >
-      <Carousel>{images}</Carousel>
-    </div>
-  );
-
-
-  // TODO - proper typing
-  const [selected, setSelectedImg] = useState<any  | undefined>(undefined);
-
-  const showFullScreen: (e: any) => void = (e: any) => {
-    if (!!e && e !== null) setSelectedImg(e!.target!);
-  };
-
-  const hideFullScreen = () => {
-    setSelectedImg(undefined);
-  };
-
-  // The full screen picture should be in its own component 
-  const fullScreenContent = (
-    <div
-      className={contentClass + "pb-[3em]"}
-      style={{
-        width: "100vw",
-        height: "100vh",
-        position: "fixed",
-        zIndex: 100,
-        top: 0,
-        left: 0,
-        background: "rgb(0,0,0, 0.5)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        cursor: "pointer",
-      }}
-      onClick={hideFullScreen}
-    >
-      <img
-        style={{
-          height: "75vh",
-          width: "75vw",
-          objectFit: "scale-down",
-        }}
-        src={selected?.currentSrc!}
-        alt="Photo chantier"
-      ></img>
-    </div>
-  );
+export default function PhotoSection({ id }: { id?: string }) {
+  const [selected, setSelected] = useState<string | null>(null);
+  const images = galleryFiles.map((file) => GALLERY_PATH + file);
 
   return (
-    <>
-      <Section id={props.id} className={props.className}>
-        <SectionCard>
-          <h1 className={title}>{trans.get("sections.photo.title")}</h1>
-          {previewContent}
-        </SectionCard>
-      </Section>
-      {!!selected && fullScreenContent}
-    </>
+    <Section id={id}>
+      <Container>
+        <Reveal>
+          <SectionHeader
+            eyebrow={trans.get("sections.photo.title")}
+            title={trans.get("sections.photo.heading")}
+            lead={trans.get("sections.photo.content")}
+          />
+        </Reveal>
+
+        <Reveal className="mt-9">
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+            {images.map((src) => (
+              <li key={src}>
+                <button
+                  type="button"
+                  onClick={() => setSelected(src)}
+                  className="group block aspect-[4/3] w-full overflow-hidden rounded-jfd bg-jfd-ground-2 shadow-jfd-sm"
+                >
+                  <img
+                    src={src}
+                    alt="Chantier de forage géothermique JFD"
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </button>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+
+        <p className="mt-5 flex items-center gap-2.5 text-[14.5px] text-jfd-ink-soft">
+          <ImageStack className="h-[17px] w-[17px] text-jfd-teal" />
+          {trans.get("sections.photo.note")}
+        </p>
+      </Container>
+
+      <Lightbox src={selected} onClose={() => setSelected(null)} />
+    </Section>
   );
 }
