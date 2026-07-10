@@ -12,6 +12,25 @@ export const CONTACT = {
   addressLines: ["Rue de la Ferme 7B", "5377 Noiseux, Belgique"],
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Rue+de+la+Ferme+7B+5377+Noiseux",
+  postalAddress: {
+    street: "Rue de la Ferme 7B",
+    postalCode: "5377",
+    city: "Noiseux",
+    country: "BE",
+  },
+} as const;
+
+/** Canonical site identity used for SEO metadata and structured data. */
+export const SITE = {
+  url: "https://jfdforage.be",
+  name: "JFD forage",
+  locale: "fr_BE",
+  description:
+    "JFD forage, entreprise spécialisée dans le forage géothermique vertical en Belgique et au Luxembourg.",
+  ogImage: "/img/cover.webp",
+  ogImageWidth: 1430,
+  ogImageHeight: 954,
+  themeColor: "#066B7F",
 } as const;
 
 export const CREDIT = {
