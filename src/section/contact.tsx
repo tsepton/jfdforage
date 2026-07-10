@@ -111,12 +111,12 @@ export default function ContactSection({ id }: { id?: string }) {
                   href={CONTACT.emailHref}
                   variant="primary"
                   arrow
-                  className="relative self-start mr-3"
+                  className="relative self-start mr-3 mb-3"
                 >
                   {trans.get("sections.quote")}
                 </Button>
                 <Button
-                  href={CONTACT.emailHref}
+                  href={CONTACT.phoneHref}
                   variant="call"
                   arrow
                   className="relative self-start"
